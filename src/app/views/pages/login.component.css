@@ -1,0 +1,20 @@
+.card-body{
+    padding: 35px;
+}
+.card-group .card{
+    max-width: 500px;
+    margin: auto;
+}
+.card-group h1 {
+    font-size: 25px;
+    margin: 0 0 15px;
+}
+.input-group-addon {
+    padding: 15px !important;
+}
+button.btn.btn-primary.btn-flat {
+    margin: auto;
+    display: block;
+    font-size: 16px;
+    padding: 10px 30px;
+}

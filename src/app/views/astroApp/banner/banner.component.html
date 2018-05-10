@@ -1,0 +1,191 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+  <div class="row" *ngIf="!loading">
+
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-3 noMarginpadding">
+              <i class="fa fa-align-justify"></i> Banner Report
+            </div>
+
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <select [(ngModel)]="selectedBannerType" class="form-control" name="selectedBannerType" (change)="onChange()">
+                <option value=0>-- Banner Type --</option>
+                <option *ngFor="let bannerType of bannerTypes" [ngValue]="bannerType.id"> {{bannerType.name}} </option>
+
+              </select>
+            </div>
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <select class="form-control" [(ngModel)]="selectedStatus" name="selectedStatus" (change)="onChange()">
+                <option [ngValue]=null>-- Status --</option>
+                <option [ngValue]=true>Active</option>
+                <option [ngValue]=false>Inactive</option>
+
+              </select>
+            </div>
+            <div class="col-md-3 noMarginpadding">
+              <span *ngIf="userAccess" class="btn btn-primary pull-right linkHover" style="color:#fff;" data-toggle="modal" (click)="onAddBanner()">Add New Banner</span>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped textCenterTable">
+              <thead>
+                <tr>
+                  <th>Banner Image</th>
+                  <th>Banner Type</th>
+                  <th>IsActive</th>
+                  <!-- <th>Created On</th>
+                  <th>Modified On</th> -->
+                  <th [ngClass]="{displayNone: userAccess === false}">Update Category</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="displayBanner.length != 0">
+                <tr *ngFor="let banner of displayBanner">
+                  <td>
+                    <img src="{{banner.url}}" style="width:100px; height:50px;">
+                  </td>
+                  <td>{{banner.typeName}}</td>
+                  <td>
+                    <span class="online" *ngIf="banner?.active">Active</span>
+                    <span class="busy" *ngIf="!banner?.active">In Active</span>
+                  </td>
+                  <!-- <td>{{cat?.createdOn}}</td>
+                  <td>{{cat?.modifiedOn}}</td> -->
+                  <td *ngIf="userAccess">
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="OnUpdateBanner(banner)">
+                      <i class="fa fa-edit "></i>&nbsp; Update</button>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="displayBanner.length == 0">
+                <tr>
+                  <td colspan="4">No record found!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <pagination [hidden]="displayBanner.length == 0" [totalItems]="totalItems" [(ngModel)]="currentPage" [itemsPerPage]="itemsPerPage"
+            (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+
+
+
+
+  <!-- ///////////////////categoryModal Modal start here-->
+
+  <div bsModal #bannerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-info" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{headerText}}</h4>
+          <button type="button" class="close" (click)="bannerModal.hide()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form class="form-horizontal" (ngSubmit)="save(f)" #f="ngForm">
+          <div class="modal-body">
+
+
+
+            <div class="form-group row">
+              <label class="col-md-5 col-form-label" for="bannertypeId">Select Banner Type</label>
+              <div class="col-md-6">
+                <select [(ngModel)]="bannerItem.type" class="form-control" name="bannerItem.type" [disabled]="readOnly" required #bannerType="ngModel">
+                  <option [ngValue]=null>Please select</option>
+                  <option *ngFor="let bannerType of bannerTypes" [ngValue]="bannerType.id"> {{bannerType.name}} </option>
+
+                </select>
+                <span class="help-block" *ngIf="!bannerType.valid && bannerType.touched ">Please Select Banner Type</span>
+              </div>
+            </div>
+
+            <div class="form-group row" [ngClass]="{'displayNone': readOnly}">
+              <label class="col-sm-5 col-form-label" for="catNameId">Attched banner Image</label>
+              <div class="col-sm-6">
+                <label class="btn btn-info btn-file">
+                  Choose File
+                  <input type="file" name="image_file" id="image_file" (change)="fileChange($event)" style="display: none;" />
+                </label>
+                <span class="help-block" *ngIf="image_file == null">Please attach Image</span>
+                <span class="file_name">
+                  {{filename}}
+                </span>
+                <span class="file_size">
+                  {{filesize}}
+                </span>
+
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-5 col-form-label" for="upActive">Active</label>
+              <div class="col-sm-6">
+                <input id="upActive" name="bannerItem.active" [checked]="bannerItem.active" type="checkbox" [(ngModel)]="bannerItem.active">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-5 col-form-label" for="upActive">Clickable</label>
+              <div class="col-sm-6">
+                <input id="upActive" name="bannerItem.clickable" [checked]="bannerItem.clickable" type="checkbox" [(ngModel)]="bannerItem.clickable">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-5 col-form-label">Landing Screen</label>
+              <div class="col-md-6">
+                <select [(ngModel)]="bannerItem.landingScreenId" class="form-control" name="bannerItem.landingScreenId" [required]="bannerItem.clickable"
+                  [disabled]="!bannerItem.clickable" #landingScreen="ngModel">
+                  <option [ngValue]=null>Please select</option>
+                  <option *ngFor="let landingScreen of landingScreens" [ngValue]="landingScreen.id"> {{landingScreen.fcmName}} </option>
+
+                </select>
+                <span class="help-block" *ngIf="!landingScreen.valid && landingScreen.touched ">Please Select Landing Screen</span>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" (click)="categoryModal.hide()">Close</button> -->
+            <!-- <button type="button" class="btn btn-info">Save</button> -->
+            <button class="btn btn-info" type="submit" [disabled]="!(f.valid && (readOnly || image_file != null)) || loading">
+              <span *ngIf="!loading">
+                <i class="fa fa-dot-circle-o"></i> {{saveText}}</span>
+              <span *ngIf="loading">
+                <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                <span class="sr-only">Loading...</span>{{savingText}}</span>
+            </button>
+          </div>
+        </form>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+  <!-- /categoryModal Modal end here-->
+
+
+</div>

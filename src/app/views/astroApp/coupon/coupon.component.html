@@ -1,0 +1,299 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-3 noMarginpadding">
+              <i class="fa fa-align-justify"></i> Coupon Report
+            </div>
+
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <!-- <select [(ngModel)]="selectedBannerType" class="form-control" name="selectedBannerType" (change)="onChange()">
+                <option value=0>-- Select Banner Type --</option>
+                <option *ngFor="let bannerType of bannerTypes"  [ngValue]="bannerType.id" > {{bannerType.name}} </option>
+
+              </select> -->
+            </div>
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <!-- <select class="form-control" [(ngModel)]="selectedStatus" name="selectedStatus" (change)="onChange()">
+                <option [ngValue]=null>-- Select Package Status --</option>
+                <option [ngValue]=true>Active</option>
+                <option [ngValue]=false>Inactive</option>
+              </select> -->
+            </div>
+            <div class="col-md-3 noMarginpadding">
+              <span *ngIf="userAccess" class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddCoupon()">Add New Coupon</span>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-body allCouponList">
+          <div class="table-responsive">
+            <data-table id="persons-grid" headerTitle="Coupon Listing" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+              [autoReload]="false" (reload)="reloadItems($event)">
+              <data-table-column [property]="'code'" [header]="'Code'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'status'" [header]="'Status'" [sortable]="true" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                  <span class="online" *ngIf="item.status == true">Active</span>
+                  <span class="busy" *ngIf="item.status == false">Inactive</span>
+                </ng-template>
+              </data-table-column>
+              <data-table-column [property]="'type'" [header]="'Type'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'deductionValue'" [header]="'Reduction Amount'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'validFrom'" [header]="'Valid From'" [sortable]="true">
+                <ng-template #dataTableCell let-item="item">
+                  <span>{{item.validFrom | date:'d/M/y hh:mm a'}}</span>
+                </ng-template>
+              </data-table-column>
+              <data-table-column [property]="'validTo'" [header]="'Valid Upto'" [sortable]="true">
+                <ng-template #dataTableCell let-item="item">
+                  <span>{{item.validTo | date:'d/M/y hh:mm a'}}</span>
+                </ng-template>
+              </data-table-column>
+              <data-table-column [property]="'usesPerUser'" [header]="'Per Person Usage'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column *ngIf="userAccess" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                  <button class="btn btn-outline-primary btn-sm" type="button" (click)="OnUpdateCoupon(item.id)">
+                    <i class="fa fa-edit "></i>
+                  </button>
+                </ng-template>
+              </data-table-column>
+            </data-table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+
+
+
+
+  <!-- ///////////////////Coupon Modal start here-->
+
+  <div bsModal #bannerModal="bs-modal" class="modal fade couponPortal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-info modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title w-100 text-center">{{headerText}}</h2>
+          <button type="button" class="close" (click)="bannerModal.hide()" aria-label="Close">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #couponForm="ngForm">
+          <div class="modal-body">
+            <div class="form-group row">
+              <div class="col-sm-12 col-form-label">
+                <input name="couponStatus" [checked]="couponStatus" type="checkbox" [(ngModel)]="couponStatus" checked> Active
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label class="col-form-label" for="upActive">Coupon Code*:</label>
+                <input class="form-control" name="couponCode" type="text" [(ngModel)]="couponCode" required #_code="ngModel" [disabled]="readOnly"
+                />
+                <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter coupon</span>
+              </div>
+              <div class="col-sm-6">
+                <label class="col-form-label" for="upActive">Description
+                  <small>(Maximum 250 Characters)</small>:
+                </label>
+                <textarea name="couponTitle" [(ngModel)]="couponTitle" class="form-control" col="1" maxlength="250"></textarea>
+              </div>
+            </div>
+            <h4>Package</h4>
+            <div class="form-group row">
+              <div class="col-sm-12 col-form-label">
+                <input type="checkbox" (change)="0" #allPackage name="allProducts" [checked]="allProducts" [(ngModel)]="allProducts" [disabled]="readOnlyProduct"
+                /> All Package
+              </div>
+              <div class="packageSection fadeEffect w-100">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-md-5 col-form-label">
+                      <h6>Available Package</h6>
+                      <div class="availablePackage">
+                        <select class="couponList w-100" multiple name="productId" [(ngModel)]="productId" [disabled]="allPackage.checked">
+                          <option *ngFor="let item of filteredCoupon;let i = index;" [value]="item" [ngClass]="{'selected': item.selected}">{{ item.pckgName }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2 text-center addControls">
+                      <span class="btn btn-primary" (click)="onAddToList()">
+                        <!-- [disabled]="allPackage.checked" -->
+                        <i class="fa fa-arrow-right"></i>
+                      </span>
+                    </div>
+                    <div class="col-md-5">
+                      <h6>Selected Package</h6>
+                      <div class="selectedPackage w-100" [ngClass]="{'disable': allPackage.checked}">
+                        <p *ngFor="let item of choosenCoupon;let i = index;">{{item.pckgName}}
+                          <span [ngClass]="{disable: getPackageList === true }" class="removeItem" (click)="onRemoveToList(i)"></span>
+                        </p>
+                        <div class="overlay" *ngIf="allPackage.checked"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>User</h4>
+            <div class="form-group row">
+              <div class="col-sm-12 col-form-label">
+                <input type="checkbox" (change)="0" #allUser name="allUsers" [(ngModel)]="allUsers" [disabled]="readOnlyUser" /> All User
+              </div>
+              <div class="col-sm-12 fadeEffect">
+                <label class="col-form-label">User Email Ids:</label>
+                <div class="form-group row">
+                  <div class="col-sm-5 nopadding-right">
+                    <input type="text" class="form-control" name="userInput" [ngModel]="userInput" (ngModelChange)="getUserList($event)" [disabled]="allUser.checked">
+                  </div>
+                </div>
+                <div class="userExchange">
+                  <div class="row">
+                    <div class="col-sm-5 nopadding">
+                      <h6>Available Users</h6>
+                      <div class="availableUsers">
+                        <select class="userList w-100" multiple name="selectedItems" [(ngModel)]="selectedItems" [disabled]="allUser.checked">
+                          <option *ngFor="let item of filteredUsers;let i = index;" [value]="item" [ngClass]="{'selected': item.selected}">{{item.name}}: {{item.contact}}: {{item.email}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2 text-center addControls">
+                      <span class="btn btn-primary" (click)="onUserToList()">
+                        <!--  [disabled]="allUser.checked" -->
+                        <i class="fa fa-arrow-right"></i>
+                      </span>
+                    </div>
+                    <div class="col-sm-5">
+                      <h6>Selected Users</h6>
+                      <div class="selectedUsers">
+                        <div class="userList w-100" [ngClass]="{'disable': allUser.checked}">
+                          <p *ngFor="let item of availableItems;let i = index;">{{item.name}}: {{item.contact}}: {{item.email}}
+                            <span [ngClass]="{disable: getUser === true }" class="removeItem" (click)="removeUserItem(i)"></span>
+                          </p>
+                          <div class="overlay" *ngIf="allUser.checked"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>Discount</h4>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label class="col-form-label">Choose reduction criteria:</label>
+                <div class="nopadding-right">
+                  <select class="form-control" name="couponType" [(ngModel)]="couponType" required #_couponType="ngModel" [disabled]="readOnly">
+                    <option [ngValue]=null>--Select Reduction--</option>
+                    <option *ngFor="let item of reduction" value="{{ item.id }}">{{ item.name }}</option>
+                  </select>
+                  <span class="help-block" *ngIf="!_couponType.valid && _couponType.touched">Please select Reduction</span>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="col-form-label">Reduction *:</label>
+                <input class="form-control" name="deductionValue" type="text" [(ngModel)]="deductionValue" required #_reduction="ngModel"
+                  [disabled]="readOnly" />
+                <span class="help-block" *ngIf="!_reduction.valid && _reduction.touched">Please enter Reduction</span>
+              </div>
+            </div>
+            <div *ngIf="couponType === '1'">
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label class="col-form-label">Min Amount *</label>
+                  <input class="form-control" name="minAmt" type="number" [(ngModel)]="minAmt" required #_minAmt="ngModel" min="0" [disabled]="readOnly"
+                  />
+                  <span class="help-block" *ngIf="!_minAmt.valid && _minAmt.touched">Please enter Amount</span>
+                </div>
+                <div class="col-sm-6">
+                  <label class="col-form-label">Max Amount</label>
+                  <input class="form-control" name="maxAmt" type="number" [(ngModel)]="maxAmt" required #_maxAmt="ngModel" min="0" [disabled]="readOnly"
+                  />
+                  <span class="help-block" *ngIf="!_maxAmt.valid && _maxAmt.touched">Please enter Amount</span>
+                </div>
+              </div>
+            </div>
+            <h4>Usage</h4>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label class="col-form-label">Per Person Usage *:</label>
+                <input class="form-control" name="usesPerUser" type="text" [(ngModel)]="usesPerUser" required #_usage="ngModel" />
+                <span class="help-block" *ngIf="!_usage.valid && _usage.touched">Please enter Usage</span>
+              </div>
+            </div>
+            <h4>Validity</h4>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label class="col-form-label">Valid From*:</label>
+                <input type="text" class="form-control" name="validFromDate" [minDate]="fromMinDate" [(ngModel)]="validFromDate" placement="top"
+                  #validFrom="bsDatepicker" bsDatepicker required #_validDate="ngModel" [disabled]="readOnly" (ngModelChange)="checkFromDate($event)">
+                <span class="help-block date" *ngIf="!_validDate.valid && _validDate.touched">Please enter Date</span>
+              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-4 col-form-label" style="margin-top: 30px;">Time am/pm *:</label>
+                  <div class="col-sm-8">
+                    <timepicker name="validFromDate" [(ngModel)]="validFromDate"></timepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <label class="col-form-label">Valid Upto *:</label>
+                <input type="text" class="form-control" name="validUptoDate" [minDate]="minDate" [(ngModel)]="validUptoDate" placement="top"
+                  #validUpto="bsDatepicker" bsDatepicker required #_validUptoDate="ngModel">
+                <span class="help-block date" *ngIf="!_validUptoDate.valid && _validUptoDate.touched">Please enter Date</span>
+              </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <label class="col-sm-4 col-form-label" style="margin-top: 30px;">Time am/pm *:</label>
+                  <div class="col-sm-8">
+                    <timepicker name="validUptoDate" [(ngModel)]="validUptoDate"></timepicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" value="Submit" class="btn btn-primary submitBtn" (click)="onCouponSubmit(couponForm)" [disabled]="!couponForm.valid">{{ saveText }}</button>
+          </div>
+          <!--<div class="modal-footer">
+             <button type="button" class="btn btn-secondary" (click)="categoryModal.hide()">Close</button> -->
+          <!-- <button type="button" class="btn btn-info">Save</button>
+            <button class="btn btn-info" type="submit" [disabled]="!(f.valid && (readOnly || image_file != null)) || loading">
+              <span *ngIf="!loading">
+                <i class="fa fa-dot-circle-o"></i> {{saveText}}</span>
+              <span *ngIf="loading">
+                <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                <span class="sr-only">Loading...</span>{{savingText}}</span>
+            </button>
+          </div> -->
+        </form>
+
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+
+  <!-- /categoryModal Modal end here-->
+
+
+</div>

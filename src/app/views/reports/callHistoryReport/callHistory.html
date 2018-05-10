@@ -1,0 +1,150 @@
+<div id="loader-wrapper" *ngIf="loading">
+    <div id="loader"></div>
+</div>
+<div class="alertDiv">
+    <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+    <!-- <tbody *ngIf = "(astronotificationReportLists.length) !== 0">
+                <tr *ngFor="let astronotificationReportList of astronotificationReportLists">
+                  
+                  <td><b>{{astronotificationReportList?.name}}</b></td>
+                  <td>{{astronotificationReportList?.email}}</td> 
+                  <td>{{astronotificationReportList?.contact}}</td> 
+                  <td>{{astronotificationReportList?.readStatus}}</td> 
+                  <td>{{astronotificationReportList?.isCall}}</td> 
+                </tr>
+              </tbody>
+              <tbody  *ngIf = "(astronotificationReportLists.length) === 0">
+              <tr>
+                <td colspan="5">No record found !</td>
+              </tr>
+              </tbody>  -->
+
+    <!-- <select>
+                <option *ngFor="let ae of AstroEmail" value= {{ae.name}}>
+                  {{ae.name}}
+                </option>
+              </select> -->
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Start Date</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <input class="form-control" #drp="bsDaterangepicker" [maxDate]="maxDate" bsDaterangepicker [(ngModel)]="bsRangeValue" (bsValueChange)="onChangeDateValue($event)">
+                        <!-- <input class="form-control" type="text" class="form-control" [maxDate]="maxDateStart" 
+                            #dpStart="bsDatepicker" value="{{bsValueStrStart}}"
+                            bsDatepicker [(bsValue)]="bsValueStart" (bsValueChange)="onChangeStartdate()" readonly> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-1">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Type</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <select class="form-control w-100" name="selectedTransaction" [(ngModel)]="selectedTransaction" (change)="onSelectedTransaction($event)">
+                            <option *ngFor="let item of allTransactions;let i = index;" [ngValue]="item">{{ item.name }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">User</label>
+                <div class="controls userDetail">
+                    <div class="input-group">
+                        <ng-template #userTemplate let-model="item" let-index="index">
+                            <p>{{ model.email }}:{{ model.contact }}</p>
+                        </ng-template>
+                        <input [(ngModel)]="userInputTxt" (ngModelChange)="userTextChanged($event)" [typeahead]="userDataSource" [typeaheadScrollable]="true"
+                            [typeaheadOptionsInScrollableView]="5" [typeaheadAsync]="true" [typeaheadItemTemplate]="userTemplate"
+                            (typeaheadNoResults)="userChangeTypeaheadNoResults($event)" (typeaheadOnSelect)="userTypeaheadOnSelect($event)"
+                            [typeaheadMinLength]="3" typeaheadOptionField="email" class="form-control">
+                        <!-- <div *ngIf="typeaheadLoading===true">Loading</div> -->
+                        <div class="noResult" *ngIf="userTypeaheadNoResults===true"><i class="fa fa-exclamation-circle"></i> No Results Found</div>
+                        <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Astrologer</label>
+                <div class="controls astroDetail">
+                    <div class="input-group">
+                        <ng-template #astroTemplate let-model="item" let-index="index">
+                            <p>{{ model.id }}:{{ model.name }}</p>
+                        </ng-template>
+                        <input [(ngModel)]="astroInputTxt" (ngModelChange)="astroTextChanged($event)" [typeahead]="astroDataSource" [typeaheadScrollable]="true"
+                            [typeaheadOptionsInScrollableView]="5" [typeaheadAsync]="true" [typeaheadItemTemplate]="astroTemplate"
+                            (typeaheadNoResults)="astroChangeTypeaheadNoResults($event)" (typeaheadOnSelect)="astroTypeaheadOnSelect($event)"
+                            [typeaheadMinLength]="3" typeaheadOptionField="name" class="form-control">
+                        <!-- <div *ngIf="typeaheadLoading===true">Loading</div> -->
+                        <div *ngIf="astroTypeaheadNoResults===true">&#10060; No Results Found</div>
+                        <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group ">
+                <label class="col-form-label">&nbsp;</label>
+                <button type="button" class="btn btn-large btn-block btn-primary downloadBtn" (click)="downloadReport()">Download</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <data-table id="persons-grid" headerTitle="Call History" [items]="items" [itemCount]="itemCount" [autoReload]="false" (reload)="reloadItems($event)"
+                    [indexColumn]="false">
+
+                    <data-table-column width="14%" [property]="'userEmail'" [header]="'User Email'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="9%" [property]="'contact'" [header]="'Contact'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="10%" [property]="'astroName'" [header]="'Astrologer'" [sortable]="true">
+                    </data-table-column>
+                    <!-- <data-table-column width="6%" [property]="'duration'" [header]="'Duration'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.duration | timedurationpipe }}</span>
+                        </ng-template>
+                    </data-table-column> -->
+                    <data-table-column width="12%" [property]="'status'" [header]="'Status'" [sortable]="true">
+                        <!--<ng-template #dataTableCell let-item="item">
+                            <span class="w-100">Call Rejected By Astro</span>
+                        </ng-template> -->
+
+                    </data-table-column>
+                    <data-table-column width="12%" [property]="'date'" [header]="'Date'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.date | date:'yyyy-MM-dd hh:mm a'}}</span>
+                        </ng-template>
+                    </data-table-column>
+                    <data-table-column width="7%" [property]="'freeTime'" [header]="'Free Time'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.freeTime | timedurationpipe }}</span>
+                        </ng-template>
+                    </data-table-column>
+                    <data-table-column width="7%" [property]="'paidTime'" [header]="'Paid Time'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.paidTime | timedurationpipe }}</span>
+                        </ng-template>
+                    </data-table-column>
+                </data-table>
+            </div>
+        </div>
+    </div>
+</div>

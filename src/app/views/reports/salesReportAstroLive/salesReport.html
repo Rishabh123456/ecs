@@ -1,0 +1,124 @@
+<div id="loader-wrapper" *ngIf="loading">
+    <div id="loader"></div>
+</div>
+<div class="alertDiv">
+    <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+
+
+    <!-- <select>
+                <option *ngFor="let ae of AstroEmail" value= {{ae.name}}>
+                  {{ae.name}}
+                </option>
+              </select> -->
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Date Range</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </span>
+                        <input class="form-control" #drp="bsDaterangepicker" [maxDate]="maxDate" bsDaterangepicker [(ngModel)]="bsRangeValue" (bsValueChange)="onChangeValue($event)">
+                        <!-- <input class="form-control" type="text" class="form-control" [maxDate]="maxDateStart" #dpStart="bsDatepicker" value="{{bsValueStrStart}}"
+                            bsDatepicker [(bsValue)]="bsValueStart" (bsValueChange)="onChangeStartdate()" readonly> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Payment Method</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <select class="form-control" name="selectedPaymentId" [(ngModel)]="selectedPaymentId" (change)="onSelectedPayment($event)">
+                            <option value="-1">--All--</option>
+                            <option *ngFor="let item of paymentModeList;let i = index;" [ngValue]="item.id">{{ item.paymentName }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-sm-6 col-md-2">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Package</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <select class="form-control w-100">
+                            <option [value]="null">--Select Package--</option>
+                            <option *ngFor="let item of allPackage;let i = index;" [value]="item">{{ item.pckgName }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Type</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <select class="form-control w-100" name="selectedTransaction" [(ngModel)]="selectedTransaction" (change)="onSelectedTransaction($event)">
+                            <option *ngFor="let item of allTransactions;let i = index;" [ngValue]="item">{{ item.name }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="form-group ">
+                <label class="col-form-label" for="appendedInputButton">Coupon Code</label>
+                <div class="controls">
+                    <div class="input-group">
+                        <input type="text" class="form-control" [(ngModel)]="selectedCoupon" name="selectedCoupon" (ngModelChange)="onCouponChange($event)">
+                        <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+            <div class="form-group ">
+                <label class="col-form-label">&nbsp;</label>
+                <button type="button" class="btn btn-large btn-block btn-primary downloadBtn" (click)="downloadReport()">Download</button>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <data-table id="persons-grid" headerTitle="Sales Report" [items]="items" [itemCount]="itemCount" [userData]="userData" [autoReload]="false"
+                    (reload)="reloadItems($event)" [indexColumn]="false">
+                    <data-table-column width="14%" [property]="'email'" [header]="'E-mail'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="12%" [property]="'mobile'" [header]="'Contact'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="8%" [property]="'packageName'" [header]="'Validity'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.packageName * 60 | timedurationpipe}}</span>
+                            <!-- <span class="col-md-12 w-100">{{item.createOn | date:'hh:mm a'}}</span> -->
+                        </ng-template>
+                    </data-table-column>
+                    <data-table-column width="13%" [property]="'paymentMethod'" [header]="'Payment'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="7%" [property]="'txnPrice'" [header]="'Price'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="17%" [property]="'createOn'" [header]="'Created On'" [sortable]="true">
+                        <ng-template #dataTableCell let-item="item">
+                            <span class="w-100">{{item.createOn | date:'yyyy-MM-dd, hh:mm a'}}</span>
+                            <!-- <span class="col-md-12 w-100">{{item.createOn | date:'hh:mm a'}}</span> -->
+                        </ng-template>
+                    </data-table-column>
+                    <data-table-column width="15%" [property]="'token'" [header]="'Transaction Id'" [sortable]="true">
+                    </data-table-column>
+                    <data-table-column width="10%" [property]="'couponCode'" [header]="'Coupon'" [sortable]="true">
+                    </data-table-column>
+                    <!-- <data-table-column [property]="'invoicePdfPath'" [header]="'Invoice Pdf Path'" [sortable]="true" [resizable]="true">
+                    </data-table-column> -->
+                </data-table>
+            </div>
+        </div>
+    </div>
+</div>

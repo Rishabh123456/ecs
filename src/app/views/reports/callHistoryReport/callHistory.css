@@ -1,0 +1,13 @@
+
+
+.table-responsive{
+    overflow-x: inherit;
+}
+.noResult {
+    position: absolute;
+    right: 11px;
+    z-index: 99;
+    top: 7px;
+    color: #fb2929;
+    font-weight: 500;
+}

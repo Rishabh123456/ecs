@@ -1,0 +1,48 @@
+.couponPortal .modal-lg{
+    max-width:1000px;
+}
+.couponPortal .modal-body{
+    padding: 15px 35px;
+}
+.couponPortal label {
+    font-weight: 500;
+}
+.couponPortal textarea {
+    height: 35px;
+}
+.submitBtn{
+    margin: 30px auto 10px;
+    display: block;
+    font-size: 20px;
+    padding: 5px 20px 8px 20px;
+}
+.disable .overlay {
+    position: absolute;
+    height: 120px;
+    width: calc(100% - 30px);
+    background: #fff;
+    top: 24px;
+    left: 15px;
+    z-index: 9999;
+    opacity: 0.5;
+}
+.form-control:disabled{
+    background-color: #fff;
+    opacity: 0.5;
+}
+.btn-primary{
+    color: #fff;
+}
+.card-header .btn{
+    margin-top:0;
+}
+.table-responsive{
+    overflow-x: inherit;
+}
+.userExchange .userList[disabled],
+.availablePackage .couponList[disabled] {
+    border-color: rgba(179, 179, 179, 0.55);
+}
+.selectedPackage span.disable{
+    display: none;
+}
