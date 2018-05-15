@@ -1,3 +1,5 @@
+import { PSAP } from './../../shared/model/psap.model';
+import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
 import { PSAPService } from './../../services/psap.service';
 import { AlertService } from './../../services/alert.service';
 import { Category } from './../../shared/model/categories.model';
@@ -85,7 +87,9 @@ export class PSAPComponent implements OnInit {
     /* private allUserList: NotificationService, */
     private alertService: AlertService,
     private psapService: PSAPService,
-    private authGuard: AuthGuard
+    private authGuard: AuthGuard,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
   @ViewChild('couponDetail') portalForm = NgForm;
@@ -172,6 +176,22 @@ export class PSAPComponent implements OnInit {
 
   reloadItems(params) {
     this.getPSAPList(params, null);
+  }
+
+  onAddPSAP() {
+    let navigationExtras: NavigationExtras = {
+      skipLocationChange: true,
+      
+    };
+    this.router.navigate(['/psap/add']);
+  }
+
+  onUpdatePSAP(item: PSAP) {
+    let navigationExtras: NavigationExtras = {
+      skipLocationChange: true,
+      
+    };
+    this.router.navigate(['/psap', item.id]);
   }
 
  

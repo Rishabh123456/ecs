@@ -68,6 +68,17 @@ export class PSAPService {
 
   }
 
+  getPSAPById(id: number) {
+    let item:PSAP;  
+    for (var i = 0; i < this.psapList.length; i++) {
+          if (this.psapList[i].id == id) {
+                item = this.psapList[i];
+                  break;
+            } 
+      }
+    return item;
+  }
+
   getAstroList(params: DataTableParams, filterData: any) {
     let _getastroListURL = this.fetchUsersURL;
     _getastroListURL = _getastroListURL + '?' + this.paramsToQueryString(params)

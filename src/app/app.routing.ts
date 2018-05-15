@@ -60,10 +60,30 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
+        path: 'addresscode',
+        loadChildren: './views/addresscode/addresscode.module#AddressCodeModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
         path: 'psap',
         loadChildren: './views/psap/psap.module#PSAPModule'
   //      canActivate: [AuthGuard]
       },
+      {
+        path: 'serviceid',
+        loadChildren: './views/serviceid/serviceid.module#ServiceIdModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
+        path: 'subscriber',
+        loadChildren: './views/subscriber/subscriber.module#SubscriberModule'
+  //      canActivate: [AuthGuard]
+      },
+  //     {
+  //       path: 'addresscodepsap',
+  //       loadChildren: './views/addresscodepsap/addresscodepsap.module#AddressCodePSAPModule'
+  // //      canActivate: [AuthGuard]
+  //     },
       // {
       //   path: 'astroavailabilityreport',
       //   loadChildren: './views/astrologeravailabilityreport/astroavailabilityreport.module#AstroavailabilityreportModule',

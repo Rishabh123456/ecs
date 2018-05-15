@@ -1,3 +1,4 @@
+import { AddPSAPComponent } from './add-psap/add-psap.component';
 import { PSAPService } from './../../services/psap.service';
 import { SelectModule } from 'ng2-select';
 import { PipesModule } from './../../pipes/pipes.module';
@@ -29,7 +30,9 @@ import { PSAPComponent } from './psap.component';
   ],providers: [
     PSAPService
   ],
-  declarations: [ PSAPComponent ],
+  declarations: [ PSAPComponent,
+  AddPSAPComponent
+],
   
 })  
 export class PSAPModule { }

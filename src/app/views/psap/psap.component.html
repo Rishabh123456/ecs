@@ -34,7 +34,7 @@
               </select> -->
             </div>
             <div class="col-md-3 noMarginpadding pull-right">
-              <span *ngIf="userAccess" class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddAstro()">Add New PSAP</span>
+              <span class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddPSAP()">Add New PSAP</span>
             </div>
 
           </div>
@@ -60,9 +60,9 @@
                       <span class="online" *ngIf="item.isActive == 1">Active</span>
                     </ng-template>
               </data-table-column>
-              <data-table-column *ngIf="userAccess" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="OnUpdateAstro(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdatePSAP(item)"><i class="fa fa-edit "></i></button>
                 </ng-template>
               </data-table-column>
             </data-table>

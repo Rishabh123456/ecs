@@ -95,12 +95,36 @@ export const navigation = [
   //   icon: 'icon-pie-chart'
   // },
   {
+    name: 'Address Codes',
+    url: '/addresscode',
+    icon: 'icon-feed',
+    viewAction: 'ADDRESS_CODE_VIEW'
+  },
+  {
     name: 'PSAP',
     url: '/psap',
     icon: 'icon-feed',
     viewAction: 'PSAP_VIEW'
   },
+  {
+    name: 'Service Id',
+    url: '/serviceid',
+    icon: 'icon-feed',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
+  {
+    name: 'Subscriber',
+    url: '/subscriber',
+    icon: 'icon-feed',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
   // {
+  //   name: 'Address Code PSAP Mapping',
+  //   url: '/addresscodepsap',
+  //   icon: 'icon-feed',
+  //   viewAction: 'SUBSCRIBER_VIEW'
+  // },
+  // // {
   //   name: 'Astro Availability',
   //   url: '/astroavailabilityreport',
   //   icon: 'icon-pie-chart'
