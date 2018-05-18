@@ -79,11 +79,11 @@ export const routes: Routes = [
         loadChildren: './views/subscriber/subscriber.module#SubscriberModule'
   //      canActivate: [AuthGuard]
       },
-  //     {
-  //       path: 'addresscodepsap',
-  //       loadChildren: './views/addresscodepsap/addresscodepsap.module#AddressCodePSAPModule'
-  // //      canActivate: [AuthGuard]
-  //     },
+      {
+        path: 'addresscodepsap',
+        loadChildren: './views/addresscode-psap/addresscode-psap.module#AddressCodePSAPModule'
+  //      canActivate: [AuthGuard]
+      },
       // {
       //   path: 'astroavailabilityreport',
       //   loadChildren: './views/astrologeravailabilityreport/astroavailabilityreport.module#AstroavailabilityreportModule',

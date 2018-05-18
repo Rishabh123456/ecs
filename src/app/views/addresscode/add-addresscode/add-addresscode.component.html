@@ -1,0 +1,97 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="notification">
+      <!-- <h3>Notifications</h3> -->
+      <div class="notificationFields">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #notificationForm="ngForm">
+          <div class="col-sm-12">
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Code:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="Email" class="form-control" name="addressCode.code" [(ngModel)]="addressCode.code" required #_code="ngModel">
+                      <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Address Code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-sm-12">
+            <div class="form-group userInformation" [hidden]="Users.checked">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Users:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="userInput" [(ngModel)]="userInput" (ngModelChange)="getUserList($event)">
+                    </div>
+                  </div>
+                </div>
+                <div class="userExchange">
+                  <div class="row">
+                    <div class="col-sm-5 nopadding-right">
+                      <h6>Available Users</h6>
+                      <div class="availableUsers">
+                        <select class="userList w-100" name="selectedItems" multiple [(ngModel)]="selectedItems">
+                          <option *ngFor="let item of filteredUsers;let i = index;" [value]="item" [ngClass]="{'selected': item.selected}">{{item.name}}: {{item.contact}}: {{item.email}}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2 text-center controls">
+                      <button class="btn btn-primary" (click)="onAddToList()">
+                        <i class="fa fa-arrow-right"></i>
+                      </button>
+                    </div>
+                    <div class="col-sm-5 nopadding-left">
+                      <h6>Selected Users</h6>
+                      <div class="selectedUsers">
+                        <div class="userList w-100">
+                          <p *ngFor="let item of availableItems;let i = index;">{{item.name}}: {{item.contact}}: {{item.email}}
+                            <span class="removeItem" (click)="removeItem(i)"></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="col-sm-12">
+            <div class="form-group ">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Area Description:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="Email" class="form-control" name="addressCode.description" [(ngModel)]="addressCode.description" required #_description="ngModel">
+                      <span class="help-block" *ngIf="!_description.valid && _description.touched">Please enter Area Description</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" value="Submit" class="btn btn-primary submitBtn" (click)="onNotificationSubmit(notificationForm)" [disabled]="!notificationForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

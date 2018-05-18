@@ -97,33 +97,33 @@ export const navigation = [
   {
     name: 'Address Codes',
     url: '/addresscode',
-    icon: 'icon-feed',
+    icon: 'icon-globe',
     viewAction: 'ADDRESS_CODE_VIEW'
   },
   {
     name: 'PSAP',
     url: '/psap',
-    icon: 'icon-feed',
+    icon: 'icon-drawer',
     viewAction: 'PSAP_VIEW'
   },
   {
     name: 'Service Id',
     url: '/serviceid',
-    icon: 'icon-feed',
+    icon: 'icon-cursor',
     viewAction: 'SUBSCRIBER_VIEW'
   },
   {
     name: 'Subscriber',
     url: '/subscriber',
+    icon: 'icon-phone',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
+  {
+    name: 'Serving PSAP',
+    url: '/addresscodepsap',
     icon: 'icon-feed',
     viewAction: 'SUBSCRIBER_VIEW'
   },
-  // {
-  //   name: 'Address Code PSAP Mapping',
-  //   url: '/addresscodepsap',
-  //   icon: 'icon-feed',
-  //   viewAction: 'SUBSCRIBER_VIEW'
-  // },
   // // {
   //   name: 'Astro Availability',
   //   url: '/astroavailabilityreport',

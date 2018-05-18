@@ -1,0 +1,87 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-3 noMarginpadding">
+              <i class="fa fa-align-justify"></i> Address Code Listing
+            </div>
+
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <!-- <select [(ngModel)]="selectedBannerType" class="form-control" name="selectedBannerType" (change)="onChange()">
+                <option value="0">-- Select Banner Type --</option>
+                <option *ngFor="let bannerType of bannerTypes"  [ngValue]="bannerType.id" > {{bannerType.name}} </option>
+
+              </select> -->
+            </div>
+            <div class="form-group col-md-3 noMarginpadding">
+
+              <!-- <select class="form-control" [(ngModel)]="selectedStatus" name="selectedStatus" (change)="onChange($event)">
+                <option [ngValue]="null">-- Select Astro Status --</option>
+                <option [ngValue]="0">Offline</option>
+                <option [ngValue]="1">Online</option>
+                <option [ngValue]="2">Busy</option>
+                <option [ngValue]="3">Offline</option>
+
+              </select> -->
+            </div>
+            <div class="col-md-3 noMarginpadding pull-right">
+              <span class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddAddressCode()">Add New Address Code</span>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="card-body allAstroList">
+         
+            <data-table id="persons-grid" headerTitle="Address Code" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+            [autoReload]="false" (reload)="reloadItems($event)">
+              <!-- <data-table-column [property]="'image'" [header]="'Picture'" [sortable]="false" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                  <span class="astroImage">
+                    <img class="img-responsive" src="{{ item.image }}" alt="">
+                  </span>
+                </ng-template>
+              </data-table-column> -->
+              
+              <data-table-column [property]="'code'" [header]="'Code'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'description'" [header]="'Area Description'" [sortable]="true" [resizable]="false"></data-table-column>
+              <!-- <data-table-column [property]="'isTest'" [header]="'Testing'" [sortable]="true" [resizable]="false">
+                  <ng-template #dataTableCell let-item="item">
+                      <span class="busy" *ngIf="item.isActive == 0">Inactive</span>
+                      <span class="online" *ngIf="item.isActive == 1">Active</span>
+                    </ng-template>
+              </data-table-column> -->
+              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateAddressCode(item)"><i class="fa fa-edit "></i></button>
+                </ng-template>
+              </data-table-column>
+            </data-table>
+          
+
+          <!-- <pagination [hidden]="displayBanner.length == 0" [totalItems]="totalItems" [(ngModel)]="currentPage" [itemsPerPage]="itemsPerPage" (pageChanged)="pageChanged($event)"></pagination>               -->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+
+
+
+
+ 
+  <!-- /categoryModal Modal end here-->
+
+
+</div>
