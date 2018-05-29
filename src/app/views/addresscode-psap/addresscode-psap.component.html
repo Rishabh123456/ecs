@@ -16,7 +16,7 @@
 
             <div class="col-sm-6 col-md-2">
               <div class="form-group serviceIdLabel">
-                  <label class="col-form-label" for="appendedInputButton">Choose Address Code</label>
+                  <label class="col-form-label" for="appendedInputButton">Address Code</label>
              </div>
           </div>    
         <div class="col-sm-6 col-md-3">
@@ -38,9 +38,9 @@
 
           </div>
       </div>
-            <div class="col-md-3 noMarginpadding pull-right" [hidden]="!this.selectedServiceId">
+            <!-- <div class="col-md-3 noMarginpadding pull-right" [hidden]="!this.selectedServiceId">
               <span class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddSubscriber()">Add New DID</span>
-            </div>
+            </div> -->
 
           </div>
 
@@ -90,7 +90,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form class="form-horizontal" (ngSubmit)="save(f)" #f="ngForm">
+        <form class="form-horizontal"  #f="ngForm">
           <div class="modal-body">
 
 

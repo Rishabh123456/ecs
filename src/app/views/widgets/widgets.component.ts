@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 })
 export class WidgetsComponent {
 
-  public brandPrimary = '#20a8d8';
+  public brandPrimary = '#3891b1';
   public brandSuccess = '#4dbd74';
   public brandInfo = '#63c2de';
   public brandWarning = '#f8cb00';

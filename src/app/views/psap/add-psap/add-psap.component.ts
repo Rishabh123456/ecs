@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Component, ViewChild } from '@angular/core';
 @Component({
-  templateUrl: './add-psap.component.html'
+  templateUrl: './add-psap.component.html',
+  styleUrls: ['./add-psap.component.css']
 })
 export class AddPSAPComponent implements OnInit {
   loading: boolean = false;

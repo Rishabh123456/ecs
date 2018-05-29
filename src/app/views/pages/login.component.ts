@@ -40,26 +40,27 @@ export class LoginComponent implements OnInit {
         const _password = form.value.password;
 
         var admin  = {
-            "username": "heena.sheel@handygo.com",
+            "username": "rishabh",
             "role": {
                 "name": "SUPERADMIN",
-                "actions": [{
-                    "name": "LIST_VIEW"
-                }, {
-                    "name": "ASTRO_ATTENDANCE_VIEW"
-                }, {
-                    "name": "SALES_REPORT_VIEW"
-                }, {
-                    "name": "DAILY_UPDATE_VIEW"
-                }, {
-                    "name": "CREATE_UPDATE"
-                }, {
-                    "name": "CALL_HISTORY_VIEW"
-                }]
+                "actions": []
+                // "actions": [{
+                //     "name": "LIST_VIEW"
+                // }, {
+                //     "name": "ASTRO_ATTENDANCE_VIEW"
+                // }, {
+                //     "name": "SALES_REPORT_VIEW"
+                // }, {
+                //     "name": "DAILY_UPDATE_VIEW"
+                // }, {
+                //     "name": "CREATE_UPDATE"
+                // }, {
+                //     "name": "CALL_HISTORY_VIEW"
+                // }]
             }
         }
         this.userService.saveUser(admin);
-        this.router.navigate(['dailyUpdate']);
+        this.router.navigate(['addresscode']);
 
         // this.authenticationService.login(_username, _password)
         //     .subscribe(

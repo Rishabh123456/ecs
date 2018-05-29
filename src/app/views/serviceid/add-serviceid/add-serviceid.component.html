@@ -91,20 +91,8 @@
               </div>
             </div>
           </div> -->
-          <div class="col-sm-12">
-            <!--  <h6 *ngIf="selectedScreen">Data Required</h6> -->
-            <div class="row form-group" *ngFor="let keyValue of selectedScreen?.searchkeys;let i = index;">
-              <div class="col-sm-3 col-5">
-                <label class="col-form-label">{{ keyValue.key }} :</label>
-              </div>
-              <div class="col-sm-5 col-7">
-                <div class="input-group">
-                  <input class="form-control" type="text" class="form-control" name="astroId" [(ngModel)]="astroId">
-                </div>
-              </div>
-            </div>
-          </div>
-          <button type="submit" value="Submit" class="btn btn-primary submitBtn" (click)="onNotificationSubmit(notificationForm)" [disabled]="!notificationForm.valid">Submit</button>
+          
+          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
         </form>
       </div>
     </div>

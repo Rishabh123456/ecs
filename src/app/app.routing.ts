@@ -16,13 +16,13 @@ export const routes: Routes = [
   // },
    {
     path: '',
-    redirectTo: 'psap',
+    redirectTo: 'addresscode',
     pathMatch: 'full',
   },
   {
     path: 'pages/login',
     loadChildren: './views/pages/login.module#LoginModule',
-    canActivate: [AuthGuard]
+   // canActivate: [AuthGuard]
   },
   {
     path: '',

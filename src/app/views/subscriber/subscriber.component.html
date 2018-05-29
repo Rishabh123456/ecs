@@ -23,7 +23,7 @@
           <div class="form-group">
               <div class="controls userDetail">
                   <div class="input-group">
-                      <ng-template #serviceIdTemplate let-model="item" let-index="index">
+                      <ng-template #subscriberTemplate let-model="item" let-index="index">
                           <p>{{ model.nameKana }}:{{ model.nameKanji }}</p>
                       </ng-template>
                       <input [(ngModel)]="subscriberInputTxt" (ngModelChange)="subscriberTextChanged($event)" [typeahead]="subscriberDataSource" [typeaheadScrollable]="true"
@@ -90,7 +90,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form class="form-horizontal" (ngSubmit)="save(f)" #f="ngForm">
+        <form class="form-horizontal"  #f="ngForm">
           <div class="modal-body">
 
 

@@ -17,6 +17,7 @@ $gray-900:                        #151b1e;
 $black:                           #000 !default;
 
 $blue:                            #20a8d8;
+$blueagnity:                      #336699;
 $indigo:                          #6610f2 !default;
 $purple:                          #6f42c1 !default;
 $pink:                            #e83e8c !default;
@@ -29,6 +30,7 @@ $cyan:                            #63c2de;
 
 $colors: (
   blue:                           $blue,
+  blueagnity:                       $blueagnity,
   indigo:                         $indigo,
   purple:                         $purple,
   pink:                           $pink,
@@ -44,7 +46,7 @@ $colors: (
 );
 
 $theme-colors: (
-  primary:                        $blue,
+  primary:                        $blueagnity,
   secondary:                      $gray-300,
   success:                        $green,
   info:                           $cyan,
