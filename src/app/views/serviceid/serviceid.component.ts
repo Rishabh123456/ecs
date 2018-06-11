@@ -194,5 +194,9 @@ export class ServiceIdComponent implements OnInit {
     this.router.navigate(['/serviceid', item.id]);
   }
 
+  onBulkUploadServiceIds() {
+    this._bannerModal.show();
+  }
+
  
 }

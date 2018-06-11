@@ -9,40 +9,62 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <div class="row">
-            <div class="col-md-3 noMarginpadding">
-              <i class="fa fa-align-justify"></i> Serving PSAPs
-            </div>
-
-            <div class="col-sm-6 col-md-2">
-              <div class="form-group serviceIdLabel">
-                  <label class="col-form-label" for="appendedInputButton">Address Code</label>
-             </div>
-          </div>    
-        <div class="col-sm-6 col-md-3">
-          <div class="form-group">
-              <div class="controls userDetail">
-                  <div class="input-group">
-                      <ng-template #addressCodeTemplate let-model="item" let-index="index">
-                          <p>{{ model.code }}:{{ model.description }}</p>
-                      </ng-template>
-                      <input [(ngModel)]="addressCodeInputTxt" (ngModelChange)="addressCodeTextChanged($event)" [typeahead]="addressCodeDataSource" [typeaheadScrollable]="true"
-                          [typeaheadOptionsInScrollableView]="5" [typeaheadAsync]="true" [typeaheadItemTemplate]="addressCodeTemplate"
-                          (typeaheadNoResults)="addressCodeChangeTypeaheadNoResults($event)" (typeaheadOnSelect)="addressCodeTypeaheadOnSelect($event)"
-                          [typeaheadMinLength]="2" typeaheadOptionField="code" class="form-control">
-                      <!-- <div *ngIf="typeaheadLoading===true">Loading</div> -->
-                      <div class="noResult" *ngIf="addressCodeTypeaheadNoResults===true"><i class="fa fa-exclamation-circle"></i> No Results Found</div>
-                      <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
-                  </div>
+            <div class="row">
+                <!-- <div class="col-md-3 noMarginpadding">
+                  <i class="fa fa-align-justify"></i> Subscribers
+                </div> -->
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group ">
+                        <label class="col-form-label" for="appendedInputButton">Choose Address Code</label>
+                        <div class="controls">
+                            <div class="form-group">
+                                <div class="controls userDetail">
+                                    <div class="input-group">
+                                        <ng-template #addressCodeTemplate let-model="item" let-index="index">
+                                            <p>{{ model.code }}:{{ model.description }}</p>
+                                        </ng-template>
+                                        <input [(ngModel)]="addressCodeInputTxt" (ngModelChange)="addressCodeTextChanged($event)" [typeahead]="addressCodeDataSource" [typeaheadScrollable]="true"
+                                            [typeaheadOptionsInScrollableView]="5" [typeaheadAsync]="true" [typeaheadItemTemplate]="addressCodeTemplate"
+                                            (typeaheadNoResults)="addressCodeChangeTypeaheadNoResults($event)" (typeaheadOnSelect)="addressCodeTypeaheadOnSelect($event)"
+                                            [typeaheadMinLength]="2" typeaheadOptionField="code" class="form-control">
+                                        <!-- <div *ngIf="typeaheadLoading===true">Loading</div> -->
+                                        <div class="noResult" *ngIf="addressCodeTypeaheadNoResults===true"><i class="fa fa-exclamation-circle"></i> No Results Found</div>
+                                        <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
+                                    </div>
+                                </div>
+                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <!-- <div class="form-group ">
+                        <label class="col-form-label" for="appendedInputButton">Search Keyword</label>
+                        <div class="controls">
+                            <div class="input-group">
+                                <input autocomplete="off" class="form-control ng-pristine ng-valid ng-touched" name="searchPSAP" placeholder="Search Keyword.." type="text">
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                
+        
+                
+              <!-- <div class="col-md-3 noMarginpadding">
+                <i class="fa fa-align-justify"></i> PSAP Listing
+              </div> -->
+    
+              
+              
+              <div class="col-sm-6 col-md-3 noMarginpadding">
+                  <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onAddPSAPMapping()">Add New PSAP Mapping</span>
               </div>
-
-          </div>
-      </div>
-            <!-- <div class="col-md-3 noMarginpadding pull-right" [hidden]="!this.selectedServiceId">
-              <span class="btn btn-primary pull-right linkHover" data-toggle="modal" (click)="onAddSubscriber()">Add New DID</span>
-            </div> -->
-
-          </div>
+              <div class="col-sm-6 col-md-3 noMarginpadding">
+                  <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onBulkUploadPSAPMappings()">Bulk Upload PSAP Mappings</span>
+                </div>
+    
+              </div>
+        
 
         </div>
         <div class="card-body allAstroList">
@@ -135,6 +157,62 @@
 
  
   <!-- /categoryModal Modal end here-->
+
+  <div bsModal #bannerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-info" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Bulk Upload PSAP Mappings</h4>
+            <button type="button" class="close" (click)="bannerModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- <form class="form-horizontal" (ngSubmit)="save(f)" #f="ngForm"> -->
+              <form class="form-horizontal" #f="ngForm">
+            <div class="modal-body">
+  
+  
+  
+  
+              <div class="form-group row" [ngClass]="{'displayNone': readOnly}">
+                <label class="col-sm-5 col-form-label" for="catNameId">Upload csv</label>
+                <div class="col-sm-6">
+                  <label class="btn btn-info btn-file">
+                    Choose File
+                    <input type="file" name="image_file" id="image_file" (change)="fileChange($event)" style="display: none;" />
+                  </label>
+                  <span class="help-block fileUpload" *ngIf="image_file == null">Please attach file</span>
+                  <span class="file_name">
+                    {{filename}}
+                  </span>
+                  <span class="file_size">
+                    {{filesize}}
+                  </span>
+  
+                </div>
+              </div>
+  
+  
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" (click)="categoryModal.hide()">Close</button> -->
+              <button type="button" class="btn btn-info">Download csv Template</button>
+              <button class="btn btn-info" type="submit" [disabled]="!(f.valid && (readOnly || image_file != null)) || loading">
+                <span *ngIf="!loading">
+                  <i class="fa fa-dot-circle-o"></i> Submit</span>
+                <span *ngIf="loading">
+                  <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                  <span class="sr-only">Loading...</span>Uploading</span>
+              </button>
+            </div>
+          </form>
+  
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 
 
 </div>

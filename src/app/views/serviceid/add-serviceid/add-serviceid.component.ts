@@ -10,7 +10,8 @@ import { NgForm } from '@angular/forms';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Component, ViewChild } from '@angular/core';
 @Component({
-  templateUrl: './add-serviceid.component.html'
+  templateUrl: './add-serviceid.component.html',
+  styles : ['./add-serviceid.component.css']
 })
 export class AddServiceIdComponent implements OnInit {
   loading: boolean = false;

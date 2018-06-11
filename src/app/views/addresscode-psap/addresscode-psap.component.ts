@@ -101,6 +101,7 @@ export class AddressCodePSAPComponent implements OnInit {
 
   public addressCodes: AddressCode[] = [];
   public selectedAddressCode: AddressCode;
+  @ViewChild('bannerModal') _bannerModal: any;
 
   constructor(
     /* private allUserList: NotificationService, */
@@ -271,6 +272,20 @@ addressCodeTextChanged(value: string) {
     //   }
     // )
     this.params = params;
+  }
+
+  onAddPSAPMapping() {
+    let navigationExtras: NavigationExtras = {
+      skipLocationChange: true,
+      
+    };
+    this.router.navigate(['/addresscodepsap/add']);
+  }
+
+  
+
+  onBulkUploadPSAPMappings() {
+    this._bannerModal.show();
   }
  
 }

@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
             }
         }
         this.userService.saveUser(admin);
-        this.router.navigate(['addresscode']);
+        this.router.navigate(['psap']);
 
         // this.authenticationService.login(_username, _password)
         //     .subscribe(

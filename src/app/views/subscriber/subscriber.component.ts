@@ -117,6 +117,7 @@ export class SubscriberComponent implements OnInit {
   @ViewChild('couponDetail') portalForm = NgForm;
   //@ViewChild('f') _form: NgForm;
   @ViewChild('subscriberModal') _subscriberModal: any;
+  @ViewChild('bannerModal') _bannerModal: any;
 
 
   ngOnInit() {
@@ -264,6 +265,10 @@ subscriberTextChanged(value: string) {
       
     };
     this.router.navigate(['/subscriber', item.id]);
+  }
+
+  onBulkUploadDIDs() {
+    this._bannerModal.show();
   }
 
  

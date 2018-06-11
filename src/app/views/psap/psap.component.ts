@@ -28,7 +28,6 @@ export class PSAPComponent implements OnInit {
   loading: boolean = false;
 
   @ViewChild('newAstroDetail') _form: NgForm;
-
   totalItems = 0;
   currentPage = 0;
   smallnumPages = 0;
@@ -192,6 +191,10 @@ export class PSAPComponent implements OnInit {
       
     };
     this.router.navigate(['/psap', item.id]);
+  }
+
+  onBulkUploadPSAP() {
+    this._bannerModal.show();
   }
 
  

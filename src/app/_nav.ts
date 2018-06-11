@@ -94,13 +94,7 @@ export const navigation = [
   //   url: '/charts',
   //   icon: 'icon-pie-chart'
   // },
-  {
-    name: 'Address Codes',
-    url: '/addresscode',
-    icon: 'icon-globe',
-    viewAction: 'ADDRESS_CODE_VIEW'
-  },
-  {
+   {
     name: 'PSAP',
     url: '/psap',
     icon: 'icon-drawer',
