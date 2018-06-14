@@ -1,0 +1,208 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="notification">
+      <!-- <h3>Notifications</h3> -->
+      <div class="notificationFields">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #notificationForm="ngForm">
+          <!-- <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Agency Type:</label>
+                </div>
+                <!-- <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <select class="form-control" name="psap.type" [(ngModel)]="psap.type"  required
+                    #_screen="ngModel">
+                    <option [ngValue]="null">--Select Agency Type--</option>
+                    <option *ngFor="let type of agencyTypes;let i = index;" [ngValue]="type">{{type.name}}</option>
+                  </select>
+                  <!-- <span class="help-block" *ngIf="!type.valid && type.touched">Please enter a type</span> -->
+                  <!-- </div> -->
+                <!-- </div> --> 
+              <!-- </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Test PSAP:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input type="checkbox" name="psap.test" [(ngModel)]="psap.test" class="testPSAP"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> --> 
+          
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">DID:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <input class="form-control" type="text" class="form-control" name="admin.username" [(ngModel)]="admin.username" required #_username="ngModel">
+                  <span class="help-block" *ngIf="!_username.valid && _username.touched">Please enter a DID</span>
+                </div>
+              </div>            
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">PSAP:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="text" class="form-control" name="admin.password" [(ngModel)]="admin.password" required #_password="ngModel">
+                      <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter a PSAP</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4" style="border:1px solid black;">
+              <b>Select one or more Access Numbers</b>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-sm-8 col-8">
+                    <label class="col-form-label" for="appendedInputButton">Access Number 1:</label>
+                  </div>
+                  <div class="col-sm-4 col-4">
+                    <input type="checkbox"  class="testPSAP"/>
+                  </div>
+                </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">Access Number 2:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">Access Number 3:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">Access Number 4:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>            
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4" style="border:1px solid black;">
+                <b>Select one or more IP Addresses</b>
+                <div class="row">
+                    <div class="col-sm-8 col-8">
+                      <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                    </div>
+                    <div class="col-sm-4 col-4">
+                      <input type="checkbox"  class="testPSAP"/>
+                    </div>
+                  </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">10.0.0.1:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">10.0.0.2:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">10.0.0.3:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-8 col-8">
+                  <label class="col-form-label" for="appendedInputButton">10.0.0.4:</label>
+                </div>
+                <div class="col-sm-4 col-4">
+                  <input type="checkbox"  class="testPSAP"/>
+                </div>
+              </div>
+              </div>
+              <div class="col-sm-1"></div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4" style="border:1px solid black;">
+                  <b>Select one or more Routes</b>
+                  <div class="row">
+                    <div class="col-sm-8 col-8">
+                      <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                    </div>
+                    <div class="col-sm-4 col-4">
+                      <input type="checkbox"  class="testPSAP"/>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-8 col-8">
+                        <label class="col-form-label" for="appendedInputButton">Route 1:</label>
+                      </div>
+                      <div class="col-sm-4 col-4">
+                        <input type="checkbox"  class="testPSAP"/>
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col-sm-8 col-8">
+                      <label class="col-form-label" for="appendedInputButton">Route 2:</label>
+                    </div>
+                    <div class="col-sm-4 col-4">
+                      <input type="checkbox"  class="testPSAP"/>
+                    </div>
+                  </div>
+                           
+                </div>
+                <div class="col-sm-4"></div>
+                
+                </div>
+
+            <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

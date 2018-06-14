@@ -1,0 +1,181 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="notification">
+      <!-- <h3>Notifications</h3> -->
+      <div class="notificationFields">
+        <form class="form-horizontal" (ngSubmit)="onSubmit()" #notificationForm="ngForm">
+          <!-- <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Agency Type:</label>
+                </div>
+                <!-- <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <select class="form-control" name="psap.type" [(ngModel)]="psap.type"  required
+                    #_screen="ngModel">
+                    <option [ngValue]="null">--Select Agency Type--</option>
+                    <option *ngFor="let type of agencyTypes;let i = index;" [ngValue]="type">{{type.name}}</option>
+                  </select>
+                  <!-- <span class="help-block" *ngIf="!type.valid && type.touched">Please enter a type</span> -->
+                  <!-- </div> -->
+                <!-- </div> --> 
+              <!-- </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Test PSAP:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input type="checkbox" name="psap.test" [(ngModel)]="psap.test" class="testPSAP"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> --> 
+          
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">User Name:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <input class="form-control" type="text" class="form-control" name="admin.username" [(ngModel)]="admin.username" required #_username="ngModel">
+                  <span class="help-block" *ngIf="!_username.valid && _username.touched">Please enter User Name</span>
+                </div>
+              </div>            
+            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Password:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="text" class="form-control" name="admin.password" [(ngModel)]="admin.password" required #_password="ngModel">
+                      <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter Password</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Email:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <input class="form-control" type="Email" class="form-control" name="admin.email" [(ngModel)]="admin.email" required #_email="ngModel">
+                  <span class="help-block" *ngIf="!_email.valid && _email.touched">Please enter Email Address</span>
+                </div>
+              </div>            
+          </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Contact:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="text" class="form-control" name="admin.contact" [(ngModel)]="admin.contact" required #_contact="ngModel">
+                      <!-- <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Contact</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">First Name:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <input class="form-control" type="text" class="form-control" name="admin.firstname" [(ngModel)]="admin.firstname" required #_firstname="ngModel">
+                  <!-- <span class="help-block" *ngIf="!_email.valid && _email.touched">Please enter Email Address</span> -->
+                </div>
+              </div>            
+          </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Last Name:</label>
+                </div>
+                <div class="col-sm-5 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="text" class="form-control" name="admin.lastname" [(ngModel)]="admin.lastname" required #_lastname="ngModel">
+                      <!-- <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Contact</span> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="card-body">
+            <table class="table table-striped textCenterTable">
+              <thead>
+                <tr>
+                  <th>Screen</th>
+                  <th>Read Write Role</th>
+                  <th>Read Only Role</th>                    
+                  
+                                   
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>PSAP Provisioning</b></td>
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                </tr>
+                <tr>
+                  <td><b>Service Id</b></td>
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                </tr>
+                <tr>
+                  <td><b>Subscriber</b></td>
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                </tr>
+                <tr>
+                  <td><b>Address Code PSAP Mapping </b></td>
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                </tr>
+                <tr>
+                  <td><b>Testing Screen</b></td>
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                </tr>
+              </tbody>
+            </table> 
+            </div>
+          </div>
+
+          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

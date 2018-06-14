@@ -118,6 +118,18 @@ export const navigation = [
     icon: 'icon-feed',
     viewAction: 'SUBSCRIBER_VIEW'
   },
+  {
+    name: 'Test Case',
+    url: '/testcase',
+    icon: 'icon-feed',
+    viewAction: 'TEST_CASE_VIEW'
+  },
+  {
+    name: 'Operators',
+    url: '/operator',
+    icon: 'icon-feed',
+    viewAction: 'OPERATOR_VIEW'
+  },
   // // {
   //   name: 'Astro Availability',
   //   url: '/astroavailabilityreport',

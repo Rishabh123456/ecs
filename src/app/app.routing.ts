@@ -80,6 +80,16 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
+        path: 'operator',
+        loadChildren: './views/admin/admin.module#AdminModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
+        path: 'testcase',
+        loadChildren: './views/testcase/testcase.module#TestCaseModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
         path: 'addresscodepsap',
         loadChildren: './views/addresscode-psap/addresscode-psap.module#AddressCodePSAPModule'
   //      canActivate: [AuthGuard]

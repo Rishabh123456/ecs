@@ -1,0 +1,156 @@
+<div id="loader-wrapper" *ngIf="loading">
+  <div id="loader"></div>
+</div>
+<div class="alertDiv">
+  <app-alert></app-alert>
+</div>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+              <div class="col-sm-6 col-md-3">
+                  <div class="form-group ">
+                      <label class="col-form-label" for="appendedInputButton">Search Criteria</label>
+                      <div class="controls">
+                          <div class="input-group">
+                              <select class="form-control w-100" name="searchCriteria">
+                                  <option value="UserName"  selected="selected">Test Case</option>
+                                  <!-- <option value="Email">Email</option>
+                                  <option value="Contact">Contact</option>
+                                  <option value="FirstName">First Name</option>
+                                  <option value="LastName">Last Name</option>  -->
+                              </select> 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                  <div class="form-group ">
+                      <label class="col-form-label" for="appendedInputButton">Search Keyword</label>
+                      <div class="controls">
+                          <div class="input-group">
+                              <input autocomplete="off" class="form-control ng-pristine ng-valid ng-touched" name="searchPSAP" placeholder="Search Keyword.." type="text">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+      
+              
+            <!-- <div class="col-md-3 noMarginpadding">
+              <i class="fa fa-align-justify"></i> PSAP Listing
+            </div> -->
+
+            
+            <div class="col-sm-6 col-md-3 noMarginpadding">
+                <!-- <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onBulkUploadPSAP()">Bulk Upload PSAPs</span> -->
+              </div>
+            <div class="col-sm-6 col-md-3 noMarginpadding">
+              <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onAddTestCase()">Add New TestCase</span>
+            </div>
+            
+
+          </div>
+
+        </div>
+        <div class="card-body allAstroList">
+         
+            <data-table id="persons-grid" headerTitle="Operators" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+            [autoReload]="false" (reload)="reloadItems($event)">
+              <!-- <data-table-column [property]="'image'" [header]="'Picture'" [sortable]="false" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                  <span class="astroImage">
+                    <img class="img-responsive" src="{{ item.image }}" alt="">
+                  </span>
+                </ng-template>
+              </data-table-column> -->
+              <data-table-column [property]="'username'" [header]="'User Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'firstname'" [header]="'First Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <!-- <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false">
+                  <ng-template #dataTableCell let-item="item">
+                      <span class="busy" *ngIf="item.isActive == 0">Inactive</span>
+                      <span class="online" *ngIf="item.isActive == 1">Active</span>
+                    </ng-template>
+              </data-table-column> -->
+              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateOperator(item)"><i class="fa fa-edit "></i></button>
+                </ng-template>
+              </data-table-column>
+            </data-table>
+          
+
+          <!-- <pagination [hidden]="displayBanner.length == 0" [totalItems]="totalItems" [(ngModel)]="currentPage" [itemsPerPage]="itemsPerPage" (pageChanged)="pageChanged($event)"></pagination>               -->
+        </div>
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+
+
+
+
+
+  <div bsModal #bannerModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-info" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Bulk Upload PSAPs</h4>
+            <button type="button" class="close" (click)="bannerModal.hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- <form class="form-horizontal" (ngSubmit)="save(f)" #f="ngForm"> -->
+              <form class="form-horizontal" #f="ngForm">
+            <div class="modal-body">
+  
+  
+  
+  
+              <div class="form-group row" [ngClass]="{'displayNone': readOnly}">
+                <label class="col-sm-5 col-form-label" for="catNameId">Upload csv</label>
+                <div class="col-sm-6">
+                  <label class="btn btn-info btn-file">
+                    Choose File
+                    <input type="file" name="image_file" id="image_file" (change)="fileChange($event)" style="display: none;" />
+                  </label>
+                  <span class="help-block fileUpload" *ngIf="image_file == null">Please attach file</span>
+                  <span class="file_name">
+                    {{filename}}
+                  </span>
+                  <span class="file_size">
+                    {{filesize}}
+                  </span>
+  
+                </div>
+              </div>
+  
+  
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" (click)="categoryModal.hide()">Close</button> -->
+              <button type="button" class="btn btn-info">Download csv Template</button>
+              <button class="btn btn-info" type="submit" [disabled]="!(f.valid && (readOnly || image_file != null)) || loading">
+                <span *ngIf="!loading">
+                  <i class="fa fa-dot-circle-o"></i> Submit</span>
+                <span *ngIf="loading">
+                  <i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i>
+                  <span class="sr-only">Loading...</span>Uploading</span>
+              </button>
+            </div>
+          </form>
+  
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+</div>
