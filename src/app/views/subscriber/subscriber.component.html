@@ -84,11 +84,13 @@
                       <span class="online" *ngIf="item.test">true</span>
                     </ng-template>
               </data-table-column>
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdatePSAP(item)"><i class="fa fa-edit "></i></button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateSubscriber(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeleteSubscriber(item)"><i class="fa fa-trash-o "></i></button>
                 </ng-template>
               </data-table-column>
+              
             </data-table>
           
 
@@ -127,7 +129,7 @@
             <div class="form-group row">
               <label class="col-sm-5 col-form-label" for="upActive">Testing</label>
               <div class="col-sm-6">
-                <input id="upActive" name="subscriber.test" [checked]="subscriber.test" type="checkbox" [(ngModel)]="subscriber.test">
+                <input id="upActive" name="subscriber.test" [checked]="subscriber.test" type="checkbox" [(ngModel)]="subscriber.test" style="margin-top: 12px;">
               </div>
             </div>
 

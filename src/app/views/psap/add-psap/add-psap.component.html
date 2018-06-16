@@ -14,21 +14,21 @@
           <div class="form-group row">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Agency Type:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <div class="controls">
                     <select class="form-control" name="psap.type" [(ngModel)]="psap.type"  required
                     #_screen="ngModel">
-                    <option [ngValue]="null">--Select Agency Type--</option>
-                    <option *ngFor="let type of agencyTypes;let i = index;" [ngValue]="type">{{type.name}}</option>
+                    <option [ngValue]="null">--Agency Type--</option>
+                    <option *ngFor="let type of agencyTypes;let i = index;" [ngValue]="type.id">{{type.name}}</option>
                   </select>
                   <!-- <span class="help-block" *ngIf="!type.valid && type.touched">Please enter a type</span> -->
                   </div>
                 </div>
               </div>            </div>
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
               <div class="row">
                 <div class="col-sm-3 col-5">
                   <label class="col-form-label" for="appendedInputButton">Test PSAP:</label>
@@ -41,26 +41,26 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           
           <div class="form-group row">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Name:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <input class="form-control" type="Email" class="form-control" name="psap.name" [(ngModel)]="psap.name" required #_name="ngModel">
                   <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Name</span>
                 </div>
               </div>            </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Code:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <div class="controls">
                     <div class="input-group">
                       <input class="form-control" type="Email" class="form-control" name="psap.code" [(ngModel)]="psap.code" required #_code="ngModel">
@@ -75,20 +75,20 @@
           <div class="form-group row">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Access Number 1:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <input class="form-control" type="Email" class="form-control" name="psap.accessnumber1" [(ngModel)]="psap.accessnumber1" required #_name="ngModel">
                   <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Number</span>
                 </div>
               </div>            </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Access Number 2:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <div class="controls">
                     <div class="input-group">
                       <input class="form-control" type="Email" class="form-control" name="psap.accessnumber2" [(ngModel)]="psap.accessnumber2" required #_code="ngModel">
@@ -99,24 +99,77 @@
               </div>
             </div>
           </div>
-
           <div class="form-group row">
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Alt Access Number 1:</label>
+                </div>
+                <div class="col-sm-6 col-7">
+                  <input class="form-control" type="Email" class="form-control" name="psap.accessnumber1" [(ngModel)]="psap.accessnumber1" required #_name="ngModel">
+                  <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Number</span>
+                </div>
+              </div>            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Alt Access Number 2:</label>
+                </div>
+                <div class="col-sm-6 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="Email" class="form-control" name="psap.accessnumber2" [(ngModel)]="psap.accessnumber2" required #_code="ngModel">
+                      <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Agency Code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">IP Address 1:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
                   <input class="form-control" type="Email" class="form-control" name="psap.ipaddress1" [(ngModel)]="psap.ipaddress1" required #_name="ngModel">
                   <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Name</span>
                 </div>
               </div>            </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">IP Address 2:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-6 col-7">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="Email" class="form-control" name="psap.ipaddress2" [(ngModel)]="psap.ipaddress2" required #_code="ngModel">
+                      <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Agency Code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Alt IP Address 1:</label>
+                </div>
+                <div class="col-sm-6 col-7">
+                  <input class="form-control" type="Email" class="form-control" name="psap.ipaddress1" [(ngModel)]="psap.ipaddress1" required #_name="ngModel">
+                  <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Name</span>
+                </div>
+              </div>            </div>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Alt IP Address 2:</label>
+                </div>
+                <div class="col-sm-6 col-7">
                   <div class="controls">
                     <div class="input-group">
                       <input class="form-control" type="Email" class="form-control" name="psap.ipaddress2" [(ngModel)]="psap.ipaddress2" required #_code="ngModel">

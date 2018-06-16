@@ -24,7 +24,8 @@ export class PSAPService {
     psap1.code = 'KEI001';
     psap1.id = 1;
     psap1.name = 'XX Fire Station';
-    psap1.type = 'Fire Services'
+    psap1.type = 3;
+    psap1.test = true;
 
     this.psapList.push(psap1);
 
@@ -32,7 +33,8 @@ export class PSAPService {
     psap2.code = 'KEI002';
     psap2.id = 2;
     psap2.name = 'YY Police Station';
-    psap2.type = 'Police'
+    psap2.type = 1;
+    psap2.test = false;
 
     this.psapList.push(psap2);
 
@@ -40,8 +42,8 @@ export class PSAPService {
     psap3.code = 'KEI003';
     psap3.id = 3;
     psap3.name = 'ZZ Sea Station';
-    psap3.type = 'Marine Services'
-
+    psap3.type = 2;
+    psap3.test = true;
     this.psapList.push(psap3);
 
    }

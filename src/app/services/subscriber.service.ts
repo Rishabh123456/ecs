@@ -25,7 +25,13 @@ export class SubscriberService {
     let si1 = new ServiceId();
     si1.nameKana = 'Building 1'
     si1.id = 1;
-    si1.nameKanji = 'Building One'
+    si1.serviceId = 'Agnity Technologies';
+    si1.nameKanji = 'Building One';
+    si1.address = 'Noida Sector 62';
+    si1.addressCode = '201301';
+    si1.buildingName = 'Ansal Plaza';
+    si1.otg = 'OTG1'
+    si1.groupStatus = true;
 
 
     si1.subscribers = [];
@@ -38,9 +44,15 @@ export class SubscriberService {
 
 
     let si2 = new ServiceId();
+    si2.serviceId = 'ECS 911';
     si2.nameKana = 'Building 2'
     si2.id = 2;
     si2.nameKanji = 'Building Two'
+    si2.address = 'Noida Sector 58';
+    si2.addressCode = '201303';
+    si2.buildingName = 'Shopprix Mall';
+    si2.otg = 'OTG2'
+    si2.groupStatus = true;
     
     si2.subscribers = [];
     si2.subscribers.push(new Subscriber('7894328444', false));
@@ -55,7 +67,14 @@ export class SubscriberService {
     si3.nameKana = 'Building 3'
     si3.id = 3;
     si3.nameKanji = 'Building Three'
-    
+    si3.serviceId = 'Service Future';
+    si3.address = 'Botanical Garden';
+    si3.addressCode = '201306';
+    si3.buildingName = 'DLF Mall of India';
+    si3.otg = 'OTG3'
+    si3.groupStatus = true;
+
+
     si3.subscribers = [];
     si3.subscribers.push(new Subscriber('0120-3287912', false));
     si3.subscribers.push(new Subscriber('0120-3287913', true));
@@ -70,6 +89,13 @@ export class SubscriberService {
     si4.id = 4;
     si4.nameKanji = 'Building Four'
     
+    si4.serviceId = 'Service Id 4';
+    si4.address = 'Sector 29';
+    si4.addressCode = '201306';
+    si4.buildingName = 'The Great India Place';
+    si4.otg = 'OTG4'
+    si4.groupStatus = true;
+
     si4.subscribers = [];
     si4.subscribers.push(new Subscriber('011-496239843', false));
     si4.subscribers.push(new Subscriber('011-496239844', true));

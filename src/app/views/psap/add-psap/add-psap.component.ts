@@ -82,9 +82,9 @@ export class AddPSAPComponent implements OnInit {
 
 
   ngOnInit() {
-    this.agencyTypes.push({"id": 1, "name":  "Police", "description": "Police"});
-    this.agencyTypes.push({"id": 2, "name":  "Marine", "description": "Marine"});
-    this.agencyTypes.push({"id": 3, "name":  "Fire Services", "description": "Fire Services"});
+    this.agencyTypes.push({"id": 1, "name":  "Police Headquarters", "description": "Police"});
+    this.agencyTypes.push({"id": 2, "name":  "Coast Guard", "description": "Marine"});
+    this.agencyTypes.push({"id": 3, "name":  "Fire Department", "description": "Fire Services"});
     
     this.route.params.subscribe(
       (params: Params) => {
@@ -94,6 +94,7 @@ export class AddPSAPComponent implements OnInit {
 
         if (!psapId) {
           this.psap = new PSAP();
+          this.psap.type = null;
         } else {
           this.psap = this.psapService.getPSAPById(psapId)
         }

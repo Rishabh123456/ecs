@@ -1,6 +1,6 @@
 export class PSAP {
     id: number;
-    type: string;
+    type: number;
     code: string;
     name: string;
     test: boolean;

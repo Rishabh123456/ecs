@@ -70,8 +70,12 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
+              <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'nameKana'" [header]="'Name Kana'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'nameKanji'" [header]="'Name Kanji'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'buildingName'" [header]="'Building'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'address'" [header]="'Address'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'addressCode'" [header]="'Address Code'" [sortable]="true" [resizable]="false"></data-table-column>
               <!-- <data-table-column [property]="'code'" [header]="'Code'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'type'" [header]="'Type'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'isTest'" [header]="'Testing'" [sortable]="true" [resizable]="false">
@@ -80,11 +84,13 @@
                       <span class="online" *ngIf="item.isActive == 1">Active</span>
                     </ng-template>
               </data-table-column> -->
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateServiceId(item)"><i class="fa fa-edit "></i></button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateServiceId(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeleteServiceId(item)"><i class="fa fa-trash-o "></i></button>
                 </ng-template>
               </data-table-column>
+              
             </data-table>
           
 

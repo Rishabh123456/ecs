@@ -66,16 +66,23 @@
               </data-table-column> -->
               <data-table-column [property]="'name'" [header]="'Name'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'code'" [header]="'Code'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'type'" [header]="'Type'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'isTest'" [header]="'Testing'" [sortable]="true" [resizable]="false">
+              <data-table-column [property]="'type'" [header]="'Type'" [sortable]="true" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                    <span  *ngIf="item.type == 1">Police Headquarters</span>
+                    <span  *ngIf="item.type == 2">Fire Department</span>
+                    <span  *ngIf="item.type == 3">Coast Guard</span>
+                  </ng-template>
+            </data-table-column>
+              <!-- <data-table-column [property]="'isTest'" [header]="'Testing'" [sortable]="true" [resizable]="false">
                   <ng-template #dataTableCell let-item="item">
-                      <span class="busy" *ngIf="item.isActive == 0">Inactive</span>
-                      <span class="online" *ngIf="item.isActive == 1">Active</span>
+                      <span class="busy" *ngIf="!item.test">true</span>
+                      <span class="online" *ngIf="item.test">false</span>
                     </ng-template>
-              </data-table-column>
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              </data-table-column> -->
+              <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
                     <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdatePSAP(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeletePSAP(item)"><i class="fa fa-trash-o "></i></button>
                 </ng-template>
               </data-table-column>
             </data-table>
