@@ -76,11 +76,14 @@
                       <span class="online" *ngIf="item.isActive == 1">Active</span>
                     </ng-template>
               </data-table-column> -->
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
-                <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateOperator(item)"><i class="fa fa-edit "></i></button>
-                </ng-template>
-              </data-table-column>
+            
+
+              <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+                  <ng-template #dataTableCell let-item="item">
+                      <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateOperator(item)"><i class="fa fa-edit "></i></button>
+                      <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeleteOperator(item)"><i class="fa fa-trash-o "></i></button>
+                  </ng-template>
+                </data-table-column>
             </data-table>
           
 

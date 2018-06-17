@@ -22,8 +22,8 @@
                                   <option value="Code">Type</option>
                                   <option value="Code">Access Number 1</option>
                                   <option value="Code">Access Number 2</option>
-                                  <option value="Code">A Side IP Address</option>
-                                  <option value="Code">B Side IP Address</option>
+                                  <option value="Code">A Side IP VPN</option>
+                                  <option value="Code">B Side IP VPN</option>
                               </select>
                           </div>
                       </div>
@@ -71,15 +71,16 @@
               </data-table-column> -->
               <data-table-column [property]="'name'" [header]="'Name'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'code'" [header]="'Code'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="''" [header]="'Access Number 1'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="''" [header]="'A Side IP Address'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'type'" [header]="'Type'" [sortable]="true" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
                     <span  *ngIf="item.type == 1">Police Headquarters</span>
-                    <span  *ngIf="item.type == 2">Fire Department</span>
-                    <span  *ngIf="item.type == 3">Coast Guard</span>
+                    <span  *ngIf="item.type == 2">Coast Guard</span>
+                    <span  *ngIf="item.type == 3">Fire Department</span>
                   </ng-template>
             </data-table-column>
+            <data-table-column [property]="'accessnumber1'" [header]="'Access Number 1'" [sortable]="true" [resizable]="false"></data-table-column>
+            <data-table-column [property]="'asideipvpn'" [header]="'A Side IP VPN'" [sortable]="true" [resizable]="false"></data-table-column>
+         
               <!-- <data-table-column [property]="'isTest'" [header]="'Testing'" [sortable]="true" [resizable]="false">
                   <ng-template #dataTableCell let-item="item">
                       <span class="busy" *ngIf="!item.test">true</span>

@@ -45,7 +45,7 @@ const routes: Routes = [
                 
               ]
             }, {
-              path: ':adminId',
+              path: ':testCaseId',
               
               data: {
                 title: 'Edit',

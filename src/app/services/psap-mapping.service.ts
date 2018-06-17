@@ -1,3 +1,5 @@
+import { PSAPService } from './psap.service';
+import { AddressCodePSAPMapping } from './../shared/model/addresscode-psap.model';
 import { Subscriber } from './../shared/model/subscriber.model';
 import { ServiceId } from './../shared/model/serviceid.model';
 import { PSAP } from './../shared/model/psap.model';
@@ -13,70 +15,32 @@ import 'rxjs/add/operator/catch'
 export class PSAPMappingService {
 
 
-  private serviceIdList: ServiceId[] = [];  
+  private mappingsList: AddressCodePSAPMapping[] = [];  
 
   private baseURL = environment.baseBZURI;
   private fetchUsersURL = this.baseURL + '/astroListV2';
   private fetchUsersByNameURL = this.baseURL + '/astroListByName';
   private createAstroURL = this.baseURL + '/createAstro';
   private updateAstroURL = this.baseURL + '/updateAstro';
-  constructor(private http: Http) {
+  constructor(private http: Http, 
+    private psapService: PSAPService ) {
     // Initialize PSAP Listing
-    let si1 = new ServiceId();
-    si1.nameKana = 'Building 1'
-    si1.id = 1;
-    si1.nameKanji = 'Building One'
+        let params = {
+          offset: 0,
+          limit: 10
+        }
+        let psapList = this.psapService.getPSAPList(params, null);
 
 
-    si1.subscribers = [];
-    si1.subscribers.push(new Subscriber('987654321', false));
-    si1.subscribers.push(new Subscriber('987654320', false));
-    si1.subscribers.push(new Subscriber('987654319', false));
-    si1.subscribers.push(new Subscriber('987654322', true));
-    
-    this.serviceIdList.push(si1);
+         let apm1:AddressCodePSAPMapping  = new AddressCodePSAPMapping();
+         apm1.id = 1;
+         apm1.addressCode = '110091'
+         apm1.activePSAP = psapList[0];
+         apm1.activePSAPEnabled = true;
+         apm1.alternatePSAP = psapList[2];
+         apm1.alternatePSAPEnabled = false;
 
-
-    let si2 = new ServiceId();
-    si2.nameKana = 'Building 2'
-    si2.id = 2;
-    si2.nameKanji = 'Building Two'
-    
-    si2.subscribers = [];
-    si2.subscribers.push(new Subscriber('7894328444', false));
-    si2.subscribers.push(new Subscriber('7894328445', true));
-    si2.subscribers.push(new Subscriber('7894328447', false));
-    si2.subscribers.push(new Subscriber('7894328446', true));
-
-    this.serviceIdList.push(si2);
-
-
-    let si3 = new ServiceId();
-    si3.nameKana = 'Building 3'
-    si3.id = 3;
-    si3.nameKanji = 'Building Three'
-    
-    si3.subscribers = [];
-    si3.subscribers.push(new Subscriber('0120-3287912', false));
-    si3.subscribers.push(new Subscriber('0120-3287913', true));
-    si3.subscribers.push(new Subscriber('0120-3287914', false));
-    
-
-    this.serviceIdList.push(si3);
-
-
-    let si4 = new ServiceId();
-    si4.nameKana = 'Building 4'
-    si4.id = 4;
-    si4.nameKanji = 'Building Four'
-    
-    si4.subscribers = [];
-    si4.subscribers.push(new Subscriber('011-496239843', false));
-    si4.subscribers.push(new Subscriber('011-496239844', true));
-    si4.subscribers.push(new Subscriber('011-496239845', false));
-    
-
-    this.serviceIdList.push(si4);
+         this.mappingsList.push(apm1);
 
    }
 
@@ -97,16 +61,17 @@ export class PSAPMappingService {
     return result.map(param => param.join('=')).join('&');
   }
 
-  getServiceIdList(params: DataTableParams, filterData: any) {
-   return this.serviceIdList;
+ 
 
+  getPSAPMappings()  {
+    return this.mappingsList;
   }
 
-  getServiceIdById(id: number) {
-    let item:ServiceId;  
-    for (var i = 0; i < this.serviceIdList.length; i++) {
-          if (this.serviceIdList[i].id == id) {
-                item = this.serviceIdList[i];
+  getMappingById(id: number) {
+    let item:AddressCodePSAPMapping;  
+    for (var i = 0; i < this.mappingsList.length; i++) {
+          if (this.mappingsList[i].id == id) {
+                item = this.mappingsList[i];
                   break;
             } 
       }

@@ -1,3 +1,4 @@
+import { TestCase } from './../../../shared/model/testcase.model';
 import { TestCaseService } from './../../../services/testcase.service';
 import { Admin } from './../../../shared/model/admin.model';
 import { AdminService } from './../../../services/admin.service';
@@ -49,7 +50,7 @@ export class AddTestCaseComponent implements OnInit {
   public description: string = '';
   public astroStatus: number = 0;
   public readOnly: boolean;
-  public admin: Admin = new Admin();;
+  public testcase: TestCase = new TestCase();
 
 
 
@@ -89,21 +90,21 @@ export class AddTestCaseComponent implements OnInit {
     // this.agencyTypes.push({"id": 2, "name":  "Marine", "description": "Marine"});
     // this.agencyTypes.push({"id": 3, "name":  "Fire Services", "description": "Fire Services"});
     
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     const adminId = params['adminId'];
-    //     console.log('Selected Admin Id ' + adminId);
-    //    // this.getAstroconsolidatedList(selectedYear, selectedMonth, astroid);
+    this.route.params.subscribe(
+      (params: Params) => {
+        const testCaseId = params['testCaseId'];
+        console.log('Selected Test Case Id ' + testCaseId);
+       // this.getAstroconsolidatedList(selectedYear, selectedMonth, astroid);
 
-    //     if (!adminId) {
-    //       this.admin = new Admin();
-    //     } else {
-    //       this.admin = this.adminService.getAdminById(adminId)
-    //     }
+        if (!testCaseId) {
+          this.testcase = new TestCase();
+        } else {
+          this.testcase = this.testcaseService.getTestCaseById(testCaseId);
+        }
 
-    //   }
+      }
 
- //   );
+    );
   
   }
 

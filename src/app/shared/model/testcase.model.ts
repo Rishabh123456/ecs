@@ -1,10 +1,7 @@
+import { PSAP } from './psap.model';
 export class TestCase {
     id: number;
-    username: string;
-    password: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    contact: string;
+    accessNumber: string;
+    selectedPSAP: PSAP;
 }
     

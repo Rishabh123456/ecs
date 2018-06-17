@@ -1,3 +1,4 @@
+import { PSAPService } from './psap.service';
 import { TestCase } from './../shared/model/testcase.model';
 import { Admin } from './../shared/model/admin.model';
 import { Injectable } from '@angular/core';
@@ -19,8 +20,30 @@ export class TestCaseService {
   private fetchUsersByNameURL = this.baseURL + '/astroListByName';
   private createAstroURL = this.baseURL + '/createAstro';
   private updateAstroURL = this.baseURL + '/updateAstro';
-  constructor(private http: Http) {
+  constructor(private http: Http, 
+    private psapService: PSAPService) {
     // Initialize Admin Listing
+    let params = {
+        offset: 0,
+        limit: 10
+      }
+    let psapList = this.psapService.getPSAPList(params, null);
+
+    let tc = new TestCase();
+    tc.id = 1;
+    tc.accessNumber = '+81683272087';
+    tc.selectedPSAP = psapList[0];
+
+    this.testCaseList.push(tc);
+
+    
+    let tc2 = new TestCase();
+    tc2.id = 2;
+    tc2.accessNumber = '+81683272088';
+    tc2.selectedPSAP = psapList[1];
+
+    this.testCaseList.push(tc2);
+
     // let admin1 = new Admin();
     // admin1.id = 1;
     // admin1.username = 'Operator 1';
@@ -60,20 +83,20 @@ export class TestCaseService {
     return result.map(param => param.join('=')).join('&');
   }
 
-  getAdminList(params: DataTableParams, filterData: any) {
-  // return this.adminList;
+  getTestNumbersList(params: DataTableParams, filterData: any) {
+   return this.testCaseList;
 
   }
 
-  getAdminById(id: number) {
-    let item:Admin;  
-    // for (var i = 0; i < this.adminList.length; i++) {
-    //       if (this.adminList[i].id == id) {
-    //             item = this.adminList[i];
-    //               break;
-    //         } 
-    //   }
-    // return item;
+  getTestCaseById(id: number) {
+    let item:TestCase;  
+    for (var i = 0; i < this.testCaseList.length; i++) {
+          if (this.testCaseList[i].id == id) {
+                item = this.testCaseList[i];
+                  break;
+            } 
+      }
+    return item;
   }
 
   getAstroList(params: DataTableParams, filterData: any) {

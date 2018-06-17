@@ -1,3 +1,5 @@
+import { PSAPMappingService } from './../../../services/psap-mapping.service';
+import { AddressCodePSAPMapping } from './../../../shared/model/addresscode-psap.model';
 import { AddressCodeService } from './../../../services/addresscode.service';
 import { AddressCode } from './../../../shared/model/addresscode.model';
 import { PSAPType } from './../../../shared/model/psap-type.model';
@@ -48,7 +50,7 @@ export class AddAddressCodePSAPComponent implements OnInit {
   public astroStatus: number = 0;
   public readOnly: boolean;
   public addressCode: AddressCode = new AddressCode();
-
+  public mapping: AddressCodePSAPMapping = new AddressCodePSAPMapping();
 
 
   maxDate: Date = new Date();
@@ -71,7 +73,7 @@ export class AddAddressCodePSAPComponent implements OnInit {
   constructor(
     /* private allUserList: NotificationService, */
     private alertService: AlertService,
-    private addressCodeService: AddressCodeService,
+    private mappingService: PSAPMappingService,
     private authGuard: AuthGuard,
     private route: ActivatedRoute,
     private router: Router
@@ -83,20 +85,20 @@ export class AddAddressCodePSAPComponent implements OnInit {
 
 
   ngOnInit() {
-    this.agencyTypes.push({"id": 1, "name":  "Police", "description": "Police"});
-    this.agencyTypes.push({"id": 2, "name":  "Marine", "description": "Marine"});
-    this.agencyTypes.push({"id": 3, "name":  "Fire Services", "description": "Fire Services"});
+    
     
     this.route.params.subscribe(
       (params: Params) => {
-        const addressCodeId = params['addressCodeId'];
-        console.log('Selected Address Code Id ' + addressCodeId);
+        const mappingId = params['mappingId'];
+        console.log('Selected Mapping Id ' + mappingId);
        // this.getAstroconsolidatedList(selectedYear, selectedMonth, astroid);
 
-        if (!addressCodeId) {
-          this.addressCode = new AddressCode();
+        if (!mappingId) {
+          this.mapping = new AddressCodePSAPMapping();
+          this.mapping.activePSAP = new PSAP();
+          this.mapping.alternatePSAP = new PSAP(); 
         } else {
-          this.addressCode = this.addressCodeService.getAddressCodeById(addressCodeId);
+          this.mapping = this.mappingService.getMappingById(mappingId);
         }
 
       }

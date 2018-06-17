@@ -131,13 +131,29 @@ export class AddressCodePSAPComponent implements OnInit {
         limit: 10
       }
     }
-    this.reloadItems(this.params);
+   // this.reloadItems(this.params);
     this.authGuard.access;
     this.userAccess = this.authGuard.access;
-    //this.getAddressCodesList();
+    this.getPSAPMappings();
   }
 
  
+  getPSAPMappings() {
+    let data = this.mappingService.getPSAPMappings();
+    this.items = data;
+    this.itemCount = data.length;
+    // this.psapService.getAstroList(params, filterData).subscribe(
+    //   data => {
+    //     console.log('data loaded');
+    //     this.loading = false;
+    //     this.items = data.items;
+    //     this.itemCount = data.count;
+    //     this.loading = false;
+
+    //   }
+    // )
+    //this.params = params;
+  }
 
 
   getAddressCodesAsObservable(token: string): Observable<any> {
@@ -235,7 +251,7 @@ addressCodeTextChanged(value: string) {
   
 
   reloadItems(params) {
-        this.getAddressCodesList(params, null);
+       // this.getAddressCodesList(params, null);
   }
 
   onAddServiceId() {
@@ -246,12 +262,12 @@ addressCodeTextChanged(value: string) {
     this.router.navigate(['/subscriber/add']);
   }
 
-  onUpdatePSAP(item: PSAP) {
+  onUpdatePSAPMapping(item: PSAP) {
     let navigationExtras: NavigationExtras = {
       skipLocationChange: true,
       
     };
-    this.router.navigate(['/subscriber', item.id]);
+    this.router.navigate(['/addresscodepsap', item.id]);
   }
 
 

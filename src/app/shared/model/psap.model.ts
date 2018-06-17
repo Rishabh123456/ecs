@@ -3,10 +3,16 @@ export class PSAP {
     type: number;
     code: string;
     name: string;
-    test: boolean;
+    kinkukikanname: string;
     accessnumber1: string;
+    accessnumber1enabled: boolean;
     accessnumber2: string;
-    ipaddress1: string;
-    ipaddress2: string;
+    accessnumber2enabled: boolean;
+    accessnumberroundrobin: boolean;
+    asideipvpn: string;
+    asideipvpnenabled: boolean;
+    bsideipvpn: string;
+    bsideipvpnenabled: boolean;
+    ipvpnroundrobin: boolean;
 }
     

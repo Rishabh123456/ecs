@@ -45,7 +45,7 @@ const routes: Routes = [
                 
               ]
             }, {
-              path: ':psapId',
+              path: ':mappingId',
               
               data: {
                 title: 'Edit',
@@ -53,15 +53,15 @@ const routes: Routes = [
                 
               },
               children: [
-                // {
-                //   path: '',
-                //   component: AddPSAPComponent,
-                //   data: {
-                //     title: '',
+                {
+                  path: '',
+                  component: AddAddressCodePSAPComponent,
+                  data: {
+                    title: '',
                    
-                //   }
+                  }
                     
-                // },
+                },
                 
               ]
             }

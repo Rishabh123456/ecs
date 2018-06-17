@@ -94,6 +94,12 @@ export const navigation = [
   //   url: '/charts',
   //   icon: 'icon-pie-chart'
   // },
+  {
+    name: 'Service Settings',
+    url: '/servicesettings',
+    icon: 'icon-wrench',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
    {
     name: 'PSAP',
     url: '/psap',
@@ -118,12 +124,7 @@ export const navigation = [
     icon: 'icon-feed',
     viewAction: 'SUBSCRIBER_VIEW'
   },
-  {
-    name: 'Service Settings',
-    url: '/servicesettings',
-    icon: 'icon-wrench',
-    viewAction: 'SUBSCRIBER_VIEW'
-  },
+  
   {
     name: 'Test Subscribers',
     url: '/testsubscriber',

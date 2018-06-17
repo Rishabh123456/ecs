@@ -66,21 +66,29 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="''" [header]="'Phone Number'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'firstname'" [header]="'First Name'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"></data-table-column>
-              <!-- <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false">
+              <data-table-column [property]="'accessNumber'" [header]="'Phone Number'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="''" [header]="'Selected PSAP'" [sortable]="true" [resizable]="false">
                   <ng-template #dataTableCell let-item="item">
+                      {{item.selectedPSAP.name}}
+                  </ng-template>
+              </data-table-column>
+              <!-- <data-table-column [property]="''" [header]="'Selected PSAP'" [sortable]="true" [resizable]="false"></data-table-column> -->
+              <!-- <data-table-column [property]="'firstname'" [header]="'First Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <!-- <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"> -->
+                  <!-- <ng-template #dataTableCell let-item="item">
                       <span class="busy" *ngIf="item.isActive == 0">Inactive</span>
                       <span class="online" *ngIf="item.isActive == 1">Active</span>
                     </ng-template>
               </data-table-column> -->
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              <data-table-column  [property]="" width="10%" [header]="'Action'" [sortable]="false" [resizable]="false"> 
                 <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateOperator(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateTestCase(item)"><i class="fa fa-edit "></i></button>
                 </ng-template>
               </data-table-column>
+
+            
+
             </data-table>
           
 

@@ -69,7 +69,7 @@
         </div>
         <div class="card-body allAstroList">
          
-            <data-table id="persons-grid" headerTitle="DIDs" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+            <data-table id="persons-grid" headerTitle="PSAP Mappings" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
             [autoReload]="false" (reload)="reloadItems($event)">
               <!-- <data-table-column [property]="'image'" [header]="'Picture'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
@@ -78,16 +78,22 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="'number'" [header]="'Number'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'test'" [header]="'Testing'" [sortable]="true" [resizable]="false">
+              <data-table-column [property]="'addressCode'" [header]="'Address Code'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="''" [header]="'Main PSAP'" [sortable]="true" [resizable]="false">
                   <ng-template #dataTableCell let-item="item">
-                      <span class="busy" *ngIf="!item.test">false</span>
-                      <span class="online" *ngIf="item.test">true</span>
-                    </ng-template>
+                      {{item.activePSAP.name}}
+                  </ng-template>
               </data-table-column>
-              <data-table-column  [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
+              <data-table-column [property]="''" [header]="'Alternate PSAP'" [sortable]="true" [resizable]="false">
+                  <ng-template #dataTableCell let-item="item">
+                      {{item.alternatePSAP.name}}
+                  </ng-template>
+              </data-table-column>
+              
+              <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdatePSAP(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdatePSAPMapping(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeletePSAPMapping(item)"><i class="fa fa-trash-o "></i></button>
                 </ng-template>
               </data-table-column>
             </data-table>

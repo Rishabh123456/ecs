@@ -20,7 +20,7 @@
                 <div class="col-sm-5 col-7">
                   <div class="controls">
                     <div class="input-group">
-                      <input class="form-control" type="Email" class="form-control" name="addressCode.code" [(ngModel)]="addressCode.code" required #_code="ngModel">
+                      <input class="form-control" type="text" class="form-control" name="mapping.addressCode" [(ngModel)]="mapping.addressCode" required #_code="ngModel">
                       <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Address Code</span>
                     </div>
                   </div>
@@ -79,7 +79,7 @@
               <div class="row">
                 <div class="col-sm-6" >
                     <div class="row">
-                        <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 411px;">
+                        
                     </div>
                     <div class="row">
                 <div class="col-sm-5 col-5">
@@ -88,8 +88,9 @@
                 <div class="col-sm-5 col-7">
                   <div class="controls">
                     <div class="input-group">
-                      <input class="form-control" type="Email" class="form-control" name="addressCode.description" [(ngModel)]="addressCode.description" required #_description="ngModel">
-                      <span class="help-block" *ngIf="!_description.valid && _description.touched">Please enter Area Description</span>
+                      <input class="form-control" type="Email" class="form-control" name="mapping.activePSAP.name" [(ngModel)]="mapping.activePSAP.name" required #_description="ngModel">
+                      <!-- <span class="help-block" *ngIf="!_description.valid && _description.touched">Please enter Area Description</span> -->
+                      <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 10px;margin-top: 10px;">
                     </div>
                   </div>
                 </div>
@@ -97,7 +98,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="row">
-                        <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 411px;">
+                        <!-- <input name="options" ng-control="options" type="radio" [value]="mapping.activePSAPEnabled" style="margin-left: 411px;"> -->
                     </div>
                     <div class="row">
                     <div class="col-sm-5 col-5">
@@ -106,8 +107,9 @@
                     <div class="col-sm-5 col-7">
                       <div class="controls">
                         <div class="input-group">
-                          <input class="form-control" type="Email" class="form-control" name="addressCode.description" [(ngModel)]="addressCode.description" required #_description="ngModel">
-                          <span class="help-block" *ngIf="!_description.valid && _description.touched">Please enter Area Description</span>
+                          <input class="form-control" type="Email" class="form-control" name="mapping.alternatePSAP.name" [(ngModel)]="mapping.alternatePSAP.name" required #_altPSAP="ngModel">
+                          <!-- <span class="help-block" *ngIf="!_altPSAP.valid && _altPSAP.touched">Please enter Area Description</span> -->
+                          <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 10px;margin-top: 10px;">
                         </div>
                       </div>
                     </div>

@@ -24,8 +24,21 @@ export class PSAPService {
     psap1.code = 'KEI001';
     psap1.id = 1;
     psap1.name = 'XX Fire Station';
+    psap1.kinkukikanname = 'XX消防署'
     psap1.type = 3;
-    psap1.test = true;
+    psap1.accessnumber1 = '+819017901357';
+    psap1.accessnumber1enabled = true;
+    psap1.accessnumber2 = '+819017901358';
+    psap1.accessnumber2enabled = false;
+    psap1.accessnumberroundrobin = true;
+
+    psap1.asideipvpn = '10.32.0.4:8080';
+    psap1.asideipvpnenabled = false;
+    psap1.bsideipvpn = '10.32.0.5:8080';
+    psap1.bsideipvpnenabled = true;
+    psap1.ipvpnroundrobin = true;
+
+    //psap1.test = true;
 
     this.psapList.push(psap1);
 
@@ -33,8 +46,19 @@ export class PSAPService {
     psap2.code = 'KEI002';
     psap2.id = 2;
     psap2.name = 'YY Police Station';
+    psap2.kinkukikanname = 'YY警察署'
     psap2.type = 1;
-    psap2.test = false;
+    psap2.accessnumber1 = '+819017901367';
+    psap2.accessnumber1enabled = true;
+    psap2.accessnumber2 = '+819017901368';
+    psap2.accessnumber2enabled = false;
+    psap2.accessnumberroundrobin = true;
+
+    psap2.asideipvpn = '192.168.0.4:8080';
+    psap2.asideipvpnenabled = false;
+    psap2.bsideipvpn = '192.168.0.5:8080';
+    psap2.bsideipvpnenabled = true;
+    psap2.ipvpnroundrobin = true;
 
     this.psapList.push(psap2);
 
@@ -42,8 +66,20 @@ export class PSAPService {
     psap3.code = 'KEI003';
     psap3.id = 3;
     psap3.name = 'ZZ Sea Station';
+    psap3.kinkukikanname = 'ZZシーサービス'
     psap3.type = 2;
-    psap3.test = true;
+    psap3.accessnumber1 = '+819017901387';
+    psap3.accessnumber1enabled = true;
+    psap3.accessnumber2 = '+819017901388';
+    psap3.accessnumber2enabled = false;
+    psap3.accessnumberroundrobin = true;
+
+    psap3.asideipvpn = '192.168.0.7:8080';
+    psap3.asideipvpnenabled = false;
+    psap3.bsideipvpn = '192.168.0.8:8080';
+    psap3.bsideipvpnenabled = true;
+    psap3.ipvpnroundrobin = true;
+    //psap3.test = true;
     this.psapList.push(psap3);
 
    }

@@ -1,3 +1,4 @@
+import { TestCase } from './../../shared/model/testcase.model';
 import { TestCaseService } from './../../services/testcase.service';
 import { Admin } from './../../shared/model/admin.model';
 import { AdminService } from './../../services/admin.service';
@@ -148,24 +149,24 @@ export class TestCaseComponent implements OnInit {
 
  
 
-  // getAdminList(params, filterData) {
-  //   // console.log('all coupon list');
-  //  // this.loading = true;
-  //   let data = this.adminService.getAdminList(params, filterData);
-  //   this.items = data;
-  //   this.itemCount = data.length;
-  //   // this.psapService.getAstroList(params, filterData).subscribe(
-  //   //   data => {
-  //   //     console.log('data loaded');
-  //   //     this.loading = false;
-  //   //     this.items = data.items;
-  //   //     this.itemCount = data.count;
-  //   //     this.loading = false;
+  getTestCaseList(params, filterData) {
+    // console.log('all coupon list');
+   // this.loading = true;
+    let data = this.testcaseService.getTestNumbersList(params, filterData);
+    this.items = data;
+    this.itemCount = data.length;
+    // this.psapService.getAstroList(params, filterData).subscribe(
+    //   data => {
+    //     console.log('data loaded');
+    //     this.loading = false;
+    //     this.items = data.items;
+    //     this.itemCount = data.count;
+    //     this.loading = false;
 
-  //   //   }
-  //   // )
-  //   this.params = params;
-  // }
+    //   }
+    // )
+    this.params = params;
+  }
 
   
 
@@ -177,7 +178,7 @@ export class TestCaseComponent implements OnInit {
   
 
   reloadItems(params) {
-//    this.getAdminList(params, null);
+    this.getTestCaseList(params, null);
   }
 
   onAddTestCase() {
@@ -188,12 +189,12 @@ export class TestCaseComponent implements OnInit {
     this.router.navigate(['/testcase/add']);
   }
 
-  onUpdateOperator(item: Admin) {
+  onUpdateTestCase(item: TestCase) {
     let navigationExtras: NavigationExtras = {
       skipLocationChange: true,
       
     };
-    this.router.navigate(['/operator', item.id]);
+    this.router.navigate(['/testcase', item.id]);
   }
 
   onBulkUploadPSAP() {

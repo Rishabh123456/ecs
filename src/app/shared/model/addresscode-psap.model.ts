@@ -1,10 +1,11 @@
 import { PSAP } from './psap.model';
 import { AddressCode } from './addresscode.model';
 export class AddressCodePSAPMapping {
-    addressCode: AddressCode;
-    activePSAPs: PSAP[];
-    inactivePSAPs: PSAP[];
-    alternatePSAPs: PSAP[];
-    inactiveAlternatePSAPs: PSAP[];
+    id: number;
+    addressCode: string;
+    activePSAP: PSAP;
+    activePSAPEnabled: boolean;
+    alternatePSAP: PSAP;
+    alternatePSAPEnabled: boolean;
 }
     

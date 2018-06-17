@@ -1,3 +1,4 @@
+import { PSAPService } from './services/psap.service';
 import { PipesModule } from './pipes/pipes.module';
 import { AstroforcelogoutService } from './services/astroforcelogout.service';
 import { AstroconsolidatedService } from './services/astroconsolidated.service';
@@ -113,6 +114,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ConsoleListenerConfig, */
     AuthenticationService,
     UserService,
+    PSAPService,
     /*{ provide: LOG_LISTENER, useClass: ExtensionListener, multi: true },
      { provide: LOG_LISTENER, useClass: AppLogListener, multi: true } */
   ],

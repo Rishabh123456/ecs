@@ -64,97 +64,113 @@
                 <div class="col-sm-6 col-7">
                   <div class="controls">
                     <div class="input-group">
-                      <input class="form-control" type="text" class="form-control"  required >
-                      <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Kinku Kikan Name</span>
+                      <input class="form-control" type="text" class="form-control" name="psap.kinkukikanname" [(ngModel)]="psap.kinkukikanname" required #_kinkukikanname="ngModel" >
+                      <span class="help-block" *ngIf="!_kinkukikanname.valid && _kinkukikanname.touched">Please enter Kinku Kikan Name</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
+          
           <div class="form-group row">
-            <div class="col-sm-4">
-              <div class="row">
-                <div class="col-sm-5 col-5">
-                  <label class="col-form-label" for="appendedInputButton">Access Number 1:</label>
-                </div>
-                <div class="col-sm-6 col-7">
-                  <input class="form-control" type="Email" class="form-control" name="psap.accessnumber1" [(ngModel)]="psap.accessnumber1" required #_name="ngModel">
-                  <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter a Number</span>
-                </div>
-              </div>            </div>
-              <div class="col-sm-4">
+              <div class="col-sm-5">
                 <div class="row">
-                  <div class="col-sm-6 col-6"  style="text-align: right;">
-                    <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                  <div class="col-sm-5">
+                    <label class="col-form-label" for="appendedInputButton">Access Number 1:</label>
                   </div>
-                  <div class="col-sm-6 col-6">
+                  <div class="col-sm-5">
+                    <input class="form-control" type="Email" class="form-control" name="psap.accessnumber1" [(ngModel)]="psap.accessnumber1" required #_accessnumber1="ngModel">
+                    <span class="help-block" *ngIf="!_accessnumber1.valid && _accessnumber1.touched">Please enter access number</span>
+                    
+                  </div>
+                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber1enabled" [(ngModel)]="psap.accessnumber1enabled"/></div>
+  
+                </div>            </div>
+                
+              <div class="col-sm-5">
+                <div class="row">
+                  <div class="col-sm-5" >
+                    <label class="col-form-label" for="appendedInputButton">Access Number 2:</label>
+                  </div>
+                  <div class="col-sm-5">
                     <div class="controls">
                       <div class="input-group">
-                        <input type="checkbox"  class="testPSAP"/>
+                        <input class="form-control" type="Email" class="form-control" name="psap.accessnumber2" [(ngModel)]="psap.accessnumber2"  #_accessnumber2="ngModel">
+                        <!-- <span class="help-block" *ngIf="!_accessnumber2.valid && _accessnumber2.touched">Please enter access number</span> -->
+                        <!-- <input type="checkbox"  class="testPSAP"/> -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber2enabled" [(ngModel)]="psap.accessnumber2enabled"/></div>
+                </div>
+              </div>
+              <!-- <div class="col-sm-1"></div> -->
+              <div class="col-sm-2">
+                  <div class="row">
+                    <div class="col-sm-9"  style="text-align: right; margin-left: -25px">
+                      <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="controls">
+                        <div class="input-group">
+                          <input type="checkbox"  class="testPSAP" name="psap.accessnumberroundrobin" [(ngModel)]="psap.accessnumberroundrobin"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          <div class="form-group row">
+            <div class="col-sm-5">
+              <div class="row">
+                <div class="col-sm-5">
+                  <label class="col-form-label" for="appendedInputButton">A Side IP VPN:</label>
+                </div>
+                <div class="col-sm-5">
+                  <input class="form-control" type="text" class="form-control" name="psap.asideipvpn" [(ngModel)]="psap.asideipvpn" required #_asideipvpn="ngModel">
+                  <span class="help-block" *ngIf="!_asideipvpn.valid && _asideipvpn.touched">Please enter VPN Info</span>
+                  
+                </div>
+                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.asideipvpnenabled" [(ngModel)]="psap.asideipvpnenabled"/></div>
+
+              </div>            </div>
+              
+            <div class="col-sm-5">
+              <div class="row">
+                <div class="col-sm-5" >
+                  <label class="col-form-label" for="appendedInputButton">B Side IP VPN:</label>
+                </div>
+                <div class="col-sm-5">
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="text" class="form-control" name="psap.bsideipvpn" [(ngModel)]="psap.bsideipvpn" #_bsideipvpn="ngModel">
+                      <!-- <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Agency Code</span> -->
+                      <!-- <input type="checkbox"  class="testPSAP"/> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.bsideipvpnenabled" [(ngModel)]="psap.bsideipvpnenabled"/></div>
+              </div>
+            </div>
+            <!-- <div class="col-sm-1"></div> -->
+            <div class="col-sm-2">
+                <div class="row">
+                  <div class="col-sm-9"  style="text-align: right;; margin-left: -25px">
+                    <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="controls">
+                      <div class="input-group">
+                        <input type="checkbox"  class="testPSAP" name="psap.ipvpnroundrobin" [(ngModel)]="psap.ipvpnroundrobin"/>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            <div class="col-sm-4">
-              <div class="row">
-                <div class="col-sm-5 col-5" >
-                  <label class="col-form-label" for="appendedInputButton">Access Number 2:</label>
-                </div>
-                <div class="col-sm-6 col-7">
-                  <div class="controls">
-                    <div class="input-group">
-                      <input class="form-control" type="Email" class="form-control" name="psap.accessnumber2" [(ngModel)]="psap.accessnumber2" required #_code="ngModel">
-                      <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Agency Code</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-          <div class="form-group row">
-            <div class="col-sm-4">
-              <div class="row">
-                <div class="col-sm-5 col-5">
-                  <label class="col-form-label" for="appendedInputButton">A side IP Address:</label>
-                </div>
-                <div class="col-sm-6 col-7">
-                  <input class="form-control" type="Email" class="form-control"  required >
-                  <span class="help-block" *ngIf="!_name.valid && _name.touched">Please enter A Side IP Address</span>
-                </div>
-              </div>            </div>
-            <div class="col-sm-4">
-              <div class="row">
-                <div class="col-sm-6 col-6"  style="text-align: right;">
-                  <label class="col-form-label" for="appendedInputButton">Round Robin:</label>
-                </div>
-                <div class="col-sm-6 col-6">
-                  <div class="controls">
-                    <div class="input-group">
-                      <input type="checkbox"  class="testPSAP"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="row">
-                <div class="col-sm-5 col-5">
-                  <label class="col-form-label" for="appendedInputButton">B Side IP Address:</label>
-                </div>
-                <div class="col-sm-6 col-7">
-                  <div class="controls">
-                    <div class="input-group">
-                      <input class="form-control" type="text" class="form-control" name="psap.ipaddress2" [(ngModel)]="psap.ipaddress2" required #_ipaddress2="ngModel">
-                      <span class="help-block" *ngIf="!_ipaddress2.valid && _ipaddress2.touched">Please enter B Side IP Address</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
         </form>
