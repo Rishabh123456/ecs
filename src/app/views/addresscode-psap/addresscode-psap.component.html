@@ -15,37 +15,31 @@
                 </div> -->
                 <div class="col-sm-6 col-md-3">
                     <div class="form-group ">
-                        <label class="col-form-label" for="appendedInputButton">Choose Address Code</label>
+                        <label class="col-form-label" for="appendedInputButton">Search Criteria</label>
                         <div class="controls">
-                            <div class="form-group">
-                                <div class="controls userDetail">
-                                    <div class="input-group">
-                                        <ng-template #addressCodeTemplate let-model="item" let-index="index">
-                                            <p>{{ model.code }}:{{ model.description }}</p>
-                                        </ng-template>
-                                        <input [(ngModel)]="addressCodeInputTxt" (ngModelChange)="addressCodeTextChanged($event)" [typeahead]="addressCodeDataSource" [typeaheadScrollable]="true"
-                                            [typeaheadOptionsInScrollableView]="5" [typeaheadAsync]="true" [typeaheadItemTemplate]="addressCodeTemplate"
-                                            (typeaheadNoResults)="addressCodeChangeTypeaheadNoResults($event)" (typeaheadOnSelect)="addressCodeTypeaheadOnSelect($event)"
-                                            [typeaheadMinLength]="2" typeaheadOptionField="code" class="form-control">
-                                        <!-- <div *ngIf="typeaheadLoading===true">Loading</div> -->
-                                        <div class="noResult" *ngIf="addressCodeTypeaheadNoResults===true"><i class="fa fa-exclamation-circle"></i> No Results Found</div>
-                                        <!-- <button class="btn btn-primary"><i class="fa fa-arrow-right"></i></button> -->
-                                    </div>
-                                </div>
-                  
+                            <div class="input-group">
+                                <select class="form-control w-100" name="searchCriteria">
+                                    <option value="UserName"  selected="selected">Address Code</option>
+                                    <option value="UserName">Main PSAP</option>
+                                    <option value="UserName">Alternate PSAP</option>
+                                    <!-- <option value="Email">Email</option>
+                                    <option value="Contact">Contact</option>
+                                    <option value="FirstName">First Name</option>
+                                    <option value="LastName">Last Name</option>  -->
+                                </select> 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
-                    <!-- <div class="form-group ">
+                    <div class="form-group ">
                         <label class="col-form-label" for="appendedInputButton">Search Keyword</label>
                         <div class="controls">
                             <div class="input-group">
                                 <input autocomplete="off" class="form-control ng-pristine ng-valid ng-touched" name="searchPSAP" placeholder="Search Keyword.." type="text">
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 
         
