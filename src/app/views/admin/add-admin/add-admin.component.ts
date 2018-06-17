@@ -1,3 +1,4 @@
+import { TestSubscriber } from './../../../shared/model/test-subscriber.model.';
 import { Admin } from './../../../shared/model/admin.model';
 import { AdminService } from './../../../services/admin.service';
 import { PSAPType } from './../../../shared/model/psap-type.model';
@@ -49,6 +50,14 @@ export class AddAdminComponent implements OnInit {
   public astroStatus: number = 0;
   public readOnly: boolean;
   public admin: Admin = new Admin();;
+  public serviceId: string;
+  public serviceSettings: string;
+  public psap: string;
+  public subscriber: string;
+  public addressCodePSAP: string;
+  public testCase: string;
+  public testSubscriber: string;
+
 
 
 
@@ -176,6 +185,33 @@ export class AddAdminComponent implements OnInit {
   }
 
   
+  clearServiceId() {
+      this.serviceId = null;
+  }
+
+  clearTestCase() {
+    this.testCase = null;
+}
+
+clearTestSubscriber() {
+  this.testSubscriber = null;
+}
+
+clearAddressCodePSAP() {
+  this.addressCodePSAP = null;
+}
+
+clearSubscriber() {
+  this.subscriber = null;
+}
+
+clearPSAP() {
+  this.psap = null;
+}
+
+clearServiceSettings() {
+  this.serviceSettings = null;
+}
 
  
 }

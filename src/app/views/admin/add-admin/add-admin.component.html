@@ -138,37 +138,55 @@
                 <tr>
                   <th>Screen</th>
                   <th>Read Write Role</th>
-                  <th>Read Only Role</th>                    
+                  <th>Read Only Role</th>
+                  <th>Revoke</th>                    
                   
                                    
                 </tr>
               </thead>
               <tbody>
+                  <tr>
+                      <td><b>Service Settings</b></td>
+                      <td><input name="serviceSettings" [(ngModel)]="serviceSettings" ng-control="options" type="radio" [value]="1"   ></td> 
+                      <td><input name="serviceSettings" [(ngModel)]="serviceSettings" ng-control="options" type="radio" [value]="2"   ></td> 
+                      <td><button  (click)="clearServiceSettings()" type="button">Clear</button></td>
+                    </tr>
                 <tr>
                   <td><b>PSAP Provisioning</b></td>
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="psap" [(ngModel)]="psap" ng-control="options" type="radio" [value]="1"   ></td> 
+                  <td><input name="psap" [(ngModel)]="psap" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><button  (click)="clearPSAP()" type="button">Clear</button></td>
                 </tr>
                 <tr>
                   <td><b>Service Id</b></td>
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="serviceId" [(ngModel)]="serviceId" ng-control="options" type="radio" [value]="1"   ></td> 
+                  <td><input name="serviceId" [(ngModel)]="serviceId" ng-control="options" type="radio" [value]="2"   ></td>
+                  <td><button  (click)="clearServiceId()" type="button">Clear</button></td> 
                 </tr>
                 <tr>
                   <td><b>Subscriber</b></td>
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="subscriber" [(ngModel)]="subscriber" ng-control="options" type="radio" [value]="1"   ></td> 
+                  <td><input name="subscriber" [(ngModel)]="subscriber" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><button  (click)="clearSubscriber()" type="button">Clear</button></td>
                 </tr>
                 <tr>
                   <td><b>Address Code PSAP Mapping </b></td>
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><input name="addressCodePSAP" [(ngModel)]="addressCodePSAP" ng-control="options" type="radio" [value]="1"   ></td> 
+                  <td><input name="addressCodePSAP" [(ngModel)]="addressCodePSAP" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><button  (click)="clearAddressCodePSAP()" type="button">Clear</button></td>
                 </tr>
                 <tr>
-                  <td><b>Testing Screen</b></td>
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
-                  <td><input name="options" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><b>Test Subscribers Provisioning</b></td>
+                  <td><input name="testSubscriber" [(ngModel)]="testSubscriber" ng-control="options" type="radio" [value]="1"   ></td> 
+                  <td><input name="testSubscriber" [(ngModel)]="testSubscriber" ng-control="options" type="radio" [value]="2"   ></td> 
+                  <td><button  (click)="clearTestSubscriber()" type="button">Clear</button></td>
                 </tr>
+                <tr>
+                    <td><b>Test Cases Provisioning</b></td>
+                    <td><input name="testCase" [(ngModel)]="testCase" ng-control="options" type="radio" [value]="1"   ></td> 
+                    <td><input name="testCase" [(ngModel)]="testCase" ng-control="options" type="radio" [value]="2"   ></td> 
+                    <td><button  (click)="clearTestCase()" type="button">Clear</button></td>
+                  </tr>
               </tbody>
             </table> 
             </div>
