@@ -3,5 +3,6 @@ export class TestCase {
     id: number;
     accessNumber: string;
     selectedPSAP: PSAP;
+    alternatePSAP: PSAP;
 }
     

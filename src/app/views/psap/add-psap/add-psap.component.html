@@ -9,7 +9,7 @@
   <div class="row">
     <div class="notification">
       <!-- <h3>Notifications</h3> -->
-      <div class="notificationFields">
+      <div class="notificationFields" style="text-align: right;">
         <form class="form-horizontal" (ngSubmit)="onSubmit()" #notificationForm="ngForm">
           <div class="form-group row">
             <div class="col-sm-6">
@@ -79,12 +79,13 @@
                   <div class="col-sm-5">
                     <label class="col-form-label" for="appendedInputButton">Access Number 1:</label>
                   </div>
+                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber1enabled" [(ngModel)]="psap.accessnumber1enabled"/></div>
                   <div class="col-sm-5">
                     <input class="form-control" type="Email" class="form-control" name="psap.accessnumber1" [(ngModel)]="psap.accessnumber1" required #_accessnumber1="ngModel">
                     <span class="help-block" *ngIf="!_accessnumber1.valid && _accessnumber1.touched">Please enter access number</span>
                     
                   </div>
-                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber1enabled" [(ngModel)]="psap.accessnumber1enabled"/></div>
+                  
   
                 </div>            </div>
                 
@@ -93,6 +94,7 @@
                   <div class="col-sm-5" >
                     <label class="col-form-label" for="appendedInputButton">Access Number 2:</label>
                   </div>
+                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber2enabled" [(ngModel)]="psap.accessnumber2enabled"/></div>
                   <div class="col-sm-5">
                     <div class="controls">
                       <div class="input-group">
@@ -102,7 +104,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.accessnumber2enabled" [(ngModel)]="psap.accessnumber2enabled"/></div>
+                  
                 </div>
               </div>
               <!-- <div class="col-sm-1"></div> -->
@@ -128,13 +130,14 @@
                 <div class="col-sm-5">
                   <label class="col-form-label" for="appendedInputButton">A Side IP VPN:</label>
                 </div>
+                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.asideipvpnenabled" [(ngModel)]="psap.asideipvpnenabled"/></div>
+                
                 <div class="col-sm-5">
                   <input class="form-control" type="text" class="form-control" name="psap.asideipvpn" [(ngModel)]="psap.asideipvpn" required #_asideipvpn="ngModel">
                   <span class="help-block" *ngIf="!_asideipvpn.valid && _asideipvpn.touched">Please enter VPN Info</span>
                   
                 </div>
-                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.asideipvpnenabled" [(ngModel)]="psap.asideipvpnenabled"/></div>
-
+                
               </div>            </div>
               
             <div class="col-sm-5">
@@ -142,6 +145,8 @@
                 <div class="col-sm-5" >
                   <label class="col-form-label" for="appendedInputButton">B Side IP VPN:</label>
                 </div>
+                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.bsideipvpnenabled" [(ngModel)]="psap.bsideipvpnenabled"/></div>
+                
                 <div class="col-sm-5">
                   <div class="controls">
                     <div class="input-group">
@@ -151,7 +156,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-1"><input type="checkbox"  class="testPSAP" name="psap.bsideipvpnenabled" [(ngModel)]="psap.bsideipvpnenabled"/></div>
               </div>
             </div>
             <!-- <div class="col-sm-1"></div> -->

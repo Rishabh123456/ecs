@@ -72,6 +72,11 @@
                       {{item.selectedPSAP.name}}
                   </ng-template>
               </data-table-column>
+              <data-table-column [property]="''" [header]="'Alternate PSAP'" [sortable]="true" [resizable]="false">
+                  <ng-template #dataTableCell let-item="item">
+                      {{item.alternatePSAP.name}}
+                  </ng-template>
+              </data-table-column>
               <!-- <data-table-column [property]="''" [header]="'Selected PSAP'" [sortable]="true" [resizable]="false"></data-table-column> -->
               <!-- <data-table-column [property]="'firstname'" [header]="'First Name'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"></data-table-column>

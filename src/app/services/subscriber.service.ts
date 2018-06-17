@@ -26,7 +26,7 @@ export class SubscriberService {
     let si1 = new ServiceId();
     si1.nameKana = 'Building 1'
     si1.id = 1;
-    si1.serviceId = 'Agnity Technologies';
+    si1.serviceId = '5679998';
     si1.nameKanji = 'Building One';
     si1.address = 'Noida Sector 62';
     si1.addressCode = '201301';
@@ -45,7 +45,7 @@ export class SubscriberService {
 
 
     let si2 = new ServiceId();
-    si2.serviceId = 'ECS 911';
+    si2.serviceId = '3434324';
     si2.nameKana = 'Building 2'
     si2.id = 2;
     si2.nameKanji = 'Building Two'
@@ -68,7 +68,7 @@ export class SubscriberService {
     si3.nameKana = 'Building 3'
     si3.id = 3;
     si3.nameKanji = 'Building Three'
-    si3.serviceId = 'Service Future';
+    si3.serviceId = '8038863';
     si3.address = 'Botanical Garden';
     si3.addressCode = '201306';
     si3.buildingName = 'DLF Mall of India';
@@ -90,7 +90,7 @@ export class SubscriberService {
     si4.id = 4;
     si4.nameKanji = 'Building Four'
     
-    si4.serviceId = 'Service Id 4';
+    si4.serviceId = '8777577';
     si4.address = 'Sector 29';
     si4.addressCode = '201306';
     si4.buildingName = 'The Great India Place';

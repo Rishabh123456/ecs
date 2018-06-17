@@ -33,7 +33,7 @@ export class TestCaseService {
     tc.id = 1;
     tc.accessNumber = '+81683272087';
     tc.selectedPSAP = psapList[0];
-
+    tc.alternatePSAP = psapList[2];
     this.testCaseList.push(tc);
 
     
@@ -41,6 +41,7 @@ export class TestCaseService {
     tc2.id = 2;
     tc2.accessNumber = '+81683272088';
     tc2.selectedPSAP = psapList[1];
+    tc2.alternatePSAP = psapList[2];
 
     this.testCaseList.push(tc2);
 

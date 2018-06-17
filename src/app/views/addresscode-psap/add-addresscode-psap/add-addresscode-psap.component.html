@@ -9,15 +9,15 @@
   <div class="row">
     <div class="notification">
       <!-- <h3>Notifications</h3> -->
-      <div class="notificationFields">
+      <div class="notificationFields" style="text-align: right">
         <form class="form-horizontal" (ngSubmit)="onSubmit()" #notificationForm="ngForm">
-          <div class="col-sm-12">
+          <div class="col-sm-8">
             <div class="form-group ">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-4 col-5" style="margin-right: -13px;padding-right: 27px;">
                   <label class="col-form-label" for="appendedInputButton">Address Code:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-4 col-7">
                   <div class="controls">
                     <div class="input-group">
                       <input class="form-control" type="text" class="form-control" name="mapping.addressCode" [(ngModel)]="mapping.addressCode" required #_code="ngModel">
@@ -119,7 +119,7 @@
               </div>
             </div>
           </div>
-          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid" style="margin-left: 379px">Submit</button>
+          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid" style="margin-right: 448px">Submit</button>
         </form>
       </div>
     </div>

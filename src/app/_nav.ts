@@ -95,6 +95,12 @@ export const navigation = [
   //   icon: 'icon-pie-chart'
   // },
   {
+    name: 'Operators',
+    url: '/operator',
+    icon: 'icon-user',
+    viewAction: 'OPERATOR_VIEW'
+  },
+  {
     name: 'Service Settings',
     url: '/servicesettings',
     icon: 'icon-wrench',
@@ -137,12 +143,7 @@ export const navigation = [
     icon: 'icon-list',
     viewAction: 'TEST_CASE_VIEW'
   },
-  {
-    name: 'Operators',
-    url: '/operator',
-    icon: 'icon-user',
-    viewAction: 'OPERATOR_VIEW'
-  },
+  
   // // {
   //   name: 'Astro Availability',
   //   url: '/astroavailabilityreport',
