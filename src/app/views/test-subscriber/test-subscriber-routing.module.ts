@@ -1,5 +1,5 @@
-import { AddAddressCodePSAPComponent } from './add-addresscode-psap/add-addresscode-psap.component';
-import { AddressCodePSAPComponent } from './addresscode-psap.component';
+import { TestSubscriberComponent } from './test-subscriber.component';
+import { AddSubscriberComponent } from './add-subscriber/add-subscriber.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -14,12 +14,12 @@ const routes: Routes = [
       {
           path: '',
           data: {
-            title: 'Serving PSAP'
+            title: 'Test Subscribers'
           },
           children: [
             {
               path: '',
-              component: AddressCodePSAPComponent,
+              component: TestSubscriberComponent,
               data: {
                 title: ''
               }
@@ -35,7 +35,7 @@ const routes: Routes = [
               children: [
                 {
                   path: '',
-                  component: AddAddressCodePSAPComponent,
+                  component: AddSubscriberComponent,
                   data: {
                     title: '',
                    
@@ -45,7 +45,7 @@ const routes: Routes = [
                 
               ]
             }, {
-              path: ':psapId',
+              path: ':subscriberId',
               
               data: {
                 title: 'Edit',
@@ -53,15 +53,15 @@ const routes: Routes = [
                 
               },
               children: [
-                // {
-                //   path: '',
-                //   component: AddPSAPComponent,
-                //   data: {
-                //     title: '',
+                {
+                  path: '',
+                  component: AddSubscriberComponent,
+                  data: {
+                    title: '',
                    
-                //   }
+                  }
                     
-                // },
+                },
                 
               ]
             }
@@ -77,4 +77,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AddressCodePSAPRoutingModule {}
+export class TestSubscriberRoutingModule {}

@@ -1,3 +1,4 @@
+import { TestSubscriber } from './../shared/model/test-subscriber.model.';
 import { Subscriber } from './../shared/model/subscriber.model';
 import { ServiceId } from './../shared/model/serviceid.model';
 import { PSAP } from './../shared/model/psap.model';
@@ -125,6 +126,22 @@ export class SubscriberService {
 
   getServiceIdList(params: DataTableParams, filterData: any) {
    return this.serviceIdList;
+
+  }
+
+  getAllSubscriberNumbers() {
+      let allSubscribers: TestSubscriber[] = [];
+     
+     for (var i = 0; i < this.serviceIdList.length; i++) {
+        // allSubscribers = allSubscribers.concat(this.serviceIdList[i].subscribers);
+        for (var j = 0; j < this.serviceIdList[i].subscribers.length; j++) {
+            allSubscribers.push(new TestSubscriber(this.serviceIdList[i].serviceId, this.serviceIdList[i].subscribers[j].number));
+    
+            
+         }
+
+     }
+      return allSubscribers;
 
   }
 

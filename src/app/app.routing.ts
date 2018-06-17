@@ -85,8 +85,18 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
+        path: 'servicesettings',
+        loadChildren: './views/service-settings/service-settings.module#ServiceSettingsModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
         path: 'testcase',
         loadChildren: './views/testcase/testcase.module#TestCaseModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
+        path: 'testsubscriber',
+        loadChildren: './views/test-subscriber/test-subscriber.module#TestSubscriberModule'
   //      canActivate: [AuthGuard]
       },
       {

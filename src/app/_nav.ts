@@ -119,15 +119,27 @@ export const navigation = [
     viewAction: 'SUBSCRIBER_VIEW'
   },
   {
-    name: 'Test Case',
+    name: 'Service Settings',
+    url: '/servicesettings',
+    icon: 'icon-wrench',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
+  {
+    name: 'Test Subscribers',
+    url: '/testsubscriber',
+    icon: 'icon-phone',
+    viewAction: 'TEST_CASE_VIEW'
+  },
+  {
+    name: 'Test Cases',
     url: '/testcase',
-    icon: 'icon-feed',
+    icon: 'icon-list',
     viewAction: 'TEST_CASE_VIEW'
   },
   {
     name: 'Operators',
     url: '/operator',
-    icon: 'icon-feed',
+    icon: 'icon-user',
     viewAction: 'OPERATOR_VIEW'
   },
   // // {

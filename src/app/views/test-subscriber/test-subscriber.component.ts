@@ -26,10 +26,10 @@ import { DataTableResource } from './../../components/data-table';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 @Component({
 
-  templateUrl: './subscriber.component.html',
-  styleUrls: ['./subscriber.component.css']
+  templateUrl: './test-subscriber.component.html',
+  styleUrls: ['./test-subscriber.component.css']
 })
-export class SubscriberComponent implements OnInit {
+export class TestSubscriberComponent implements OnInit {
   loading: boolean = false;
 
   @ViewChild('f') _form: NgForm;
@@ -130,10 +130,10 @@ export class SubscriberComponent implements OnInit {
     this.reloadItems(this.params);
     this.authGuard.access;
     this.userAccess = this.authGuard.access;
-    this.getAllSubscriberNumbers();
+    this.getAllTestNumbers();
   }
 
-  getAllSubscriberNumbers() {
+  getAllTestNumbers() {
     let data = this.subscriberService.getAllSubscriberNumbers();
     this.itemCount = data.length;
     this.items = data;
@@ -212,7 +212,7 @@ onAddSubscriber() {
   this.saveText = "Save";
   this.savingText = "Saving..."
   // this.selectedBannerTypeId = 0;
-  this.headerText = "Add New Phone Number"
+  this.headerText = "Add New Test Number"
   this._form.form.markAsPristine();
   this._form.form.markAsUntouched();
   this._form.form.updateValueAndValidity();

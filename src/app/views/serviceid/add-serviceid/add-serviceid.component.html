@@ -27,24 +27,39 @@
                     </div>
                   </div>            
               </div>
-                <div class="col-sm-6">
-                  <div class="row">
-                      <div class="col-sm-3 col-5">
-                          <label class="col-form-label" for="appendedInputButton">Name Kana:</label>
-                        </div>
-                        <div class="col-sm-5 col-7">
-                          <div class="controls">
-                            <div class="input-group">
-                              <input class="form-control" type="Email" class="form-control" name="serviceId.nameKana" [(ngModel)]="serviceId.nameKana" required #_nameKana="ngModel">
-                              <span class="help-block" *ngIf="!_nameKana.valid && _nameKana.touched">Please enter Name Kana</span>
-                            </div>
-                          </div>
-                        </div>
+              <div class="col-sm-6">
+                <div class="row">
+                  <div class="col-sm-6 col-6"  style="text-align: right;">
+                    <label class="col-form-label" for="appendedInputButton">Test Data:</label>
+                  </div>
+                  <div class="col-sm-6 col-6">
+                    <div class="controls">
+                      <div class="input-group">
+                        <input type="checkbox" style = " margin-top: 10px;"/>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+                
+              </div>
               
               <div class="form-group row">
+                  <div class="col-sm-6">
+                      <div class="row">
+                          <div class="col-sm-3 col-5">
+                              <label class="col-form-label" for="appendedInputButton">Name Kana:</label>
+                            </div>
+                            <div class="col-sm-5 col-7">
+                              <div class="controls">
+                                <div class="input-group">
+                                  <input class="form-control" type="Email" class="form-control" name="serviceId.nameKana" [(ngModel)]="serviceId.nameKana" required #_nameKana="ngModel">
+                                  <span class="help-block" *ngIf="!_nameKana.valid && _nameKana.touched">Please enter Name Kana</span>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
                 <div class="col-sm-6">
                   <div class="row">
                       <div class="col-sm-3 col-5">
@@ -60,21 +75,7 @@
                         </div>
                   </div>            
                 </div>
-                <div class="col-sm-6">
-                  <div class="row">
-                    <div class="col-sm-3 col-5">
-                      <label class="col-form-label" for="appendedInputButton">Address Code:</label>
-                    </div>
-                    <div class="col-sm-5 col-7">
-                      <div class="controls">
-                        <div class="input-group">
-                          <input class="form-control" type="text" class="form-control" name="serviceId.addressCode" [(ngModel)]="serviceId.addressCode" required #_addressCode="ngModel">
-                          <span class="help-block" *ngIf="!_addressCode.valid && _addressCode.touched">Please enter Address Code</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                
               </div>
     
               <div class="form-group row">
@@ -111,10 +112,44 @@
               </div>
     
               <div class="form-group row">
+                  <div class="col-sm-6">
+                      <div class="row">
+                        <div class="col-sm-3 col-5">
+                          <label class="col-form-label" for="appendedInputButton">Address Code:</label>
+                        </div>
+                        <div class="col-sm-5 col-7">
+                          <div class="controls">
+                            <div class="input-group">
+                              <input class="form-control" type="text" class="form-control" name="serviceId.addressCode" [(ngModel)]="serviceId.addressCode" required #_addressCode="ngModel">
+                              <span class="help-block" *ngIf="!_addressCode.valid && _addressCode.touched">Please enter Address Code</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 <div class="col-sm-6">
                   <div class="row">
                       <div class="col-sm-3 col-5">
                           <label class="col-form-label" for="appendedInputButton">Address:</label>
+                        </div>
+                        <div class="col-sm-5 col-7">
+                          <div class="controls">
+                            <div class="input-group">
+                              <input class="form-control" type="text" class="form-control" name="serviceId.address" [(ngModel)]="serviceId.address" required #_address="ngModel">
+                              <!-- <span class="help-block" *ngIf="!_addressCode.valid && _addressCode.touched">Please enter Address Code</span> -->
+                            </div>
+                          </div>
+                        </div>
+                  </div>            
+                </div>
+                
+              </div>
+              <div class="form-group row">
+               
+                <div class="col-sm-6">
+                  <div class="row">
+                      <div class="col-sm-3 col-5">
+                          <label class="col-form-label" for="appendedInputButton">OTG:</label>
                         </div>
                         <div class="col-sm-5 col-7">
                           <div class="controls">
@@ -146,7 +181,7 @@
               </div>
           
               <!-- <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button> -->
-          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
+          <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid" style="margin-left: 379px">Submit</button>
         </form>
       </div>
     </div>

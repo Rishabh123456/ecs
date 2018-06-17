@@ -1,8 +1,7 @@
-import { AddAddressCodePSAPComponent } from './add-addresscode-psap/add-addresscode-psap.component';
-import { AddressCodeService } from './../../services/addresscode.service';
-import { PSAPMappingService } from './../../services/psap-mapping.service';
-import { AddressCodePSAPComponent } from './addresscode-psap.component';
-import { AddressCodePSAPRoutingModule } from './addresscode-psap-routing.module';
+import { TestSubscriberComponent } from './test-subscriber.component';
+import { TestSubscriberRoutingModule } from './test-subscriber-routing.module';
+import { AddSubscriberComponent } from './add-subscriber/add-subscriber.component';
+import { SubscriberService } from './../../services/subscriber.service';
 import { PSAPService } from './../../services/psap.service';
 import { SelectModule } from 'ng2-select';
 import { PipesModule } from './../../pipes/pipes.module';
@@ -14,27 +13,29 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BsDatepickerModule, TypeaheadModule } from 'ngx-bootstrap';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+import { TypeaheadModule } from 'ngx-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
-    AddressCodePSAPRoutingModule,
+    TestSubscriberRoutingModule,
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
-    TypeaheadModule.forRoot(),
     ModalModule.forRoot(),
     PaginationModule.forRoot(),
+    TypeaheadModule.forRoot(),
     FormsModule,
     AlertModule,
     DataTableModule,
     PipesModule,
     SelectModule
   ],providers: [
-    PSAPMappingService, AddressCodeService
+    SubscriberService
   ],
-  declarations: [ AddressCodePSAPComponent, AddAddressCodePSAPComponent
+  declarations: [ TestSubscriberComponent,
+  AddSubscriberComponent
 ],
   
 })  
-export class AddressCodePSAPModule { }
+export class TestSubscriberModule { }

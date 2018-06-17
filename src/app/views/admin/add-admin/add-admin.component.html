@@ -59,16 +59,12 @@
             </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
-                  <label class="col-form-label" for="appendedInputButton">Password:</label>
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Email:</label>
                 </div>
                 <div class="col-sm-5 col-7">
-                  <div class="controls">
-                    <div class="input-group">
-                      <input class="form-control" type="text" class="form-control" name="admin.password" [(ngModel)]="admin.password" required #_password="ngModel">
-                      <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter Password</span>
-                    </div>
-                  </div>
+                  <input class="form-control" type="email" class="form-control" name="admin.email" [(ngModel)]="admin.email" required #_email="ngModel">
+                  <!-- <span class="help-block" *ngIf="!_username.valid && _username.touched">Please enter User Name</span> -->
                 </div>
               </div>
             </div>
@@ -78,23 +74,27 @@
             <div class="col-sm-6">
               <div class="row">
                 <div class="col-sm-3 col-5">
-                  <label class="col-form-label" for="appendedInputButton">Email:</label>
+                  <label class="col-form-label" for="appendedInputButton">Password:</label>
                 </div>
                 <div class="col-sm-5 col-7">
-                  <input class="form-control" type="Email" class="form-control" name="admin.email" [(ngModel)]="admin.email" required #_email="ngModel">
-                  <span class="help-block" *ngIf="!_email.valid && _email.touched">Please enter Email Address</span>
+                  <div class="controls">
+                    <div class="input-group">
+                      <input class="form-control" type="password" class="form-control" name="admin.password" [(ngModel)]="admin.password" required #_password="ngModel">
+                      <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter Password</span>
+                    </div>
+                  </div>
                 </div>
               </div>            
           </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
-                  <label class="col-form-label" for="appendedInputButton">Contact:</label>
+                <div class="col-sm-5 col-5">
+                  <label class="col-form-label" for="appendedInputButton">Confirm Password:</label>
                 </div>
-                <div class="col-sm-5 col-7">
+                <div class="col-sm-5 col-5">
                   <div class="controls">
                     <div class="input-group">
-                      <input class="form-control" type="text" class="form-control" name="admin.contact" [(ngModel)]="admin.contact" required #_contact="ngModel">
+                      <input class="form-control" type="password" class="form-control" name="admin.contact" [(ngModel)]="admin.contact" required #_contact="ngModel">
                       <!-- <span class="help-block" *ngIf="!_code.valid && _code.touched">Please enter Contact</span> -->
                     </div>
                   </div>
@@ -102,6 +102,7 @@
               </div>
             </div>
           </div>
+
           <div class="form-group row">
             <div class="col-sm-6">
               <div class="row">
@@ -116,7 +117,7 @@
           </div>
             <div class="col-sm-6">
               <div class="row">
-                <div class="col-sm-3 col-5">
+                <div class="col-sm-5 col-5">
                   <label class="col-form-label" for="appendedInputButton">Last Name:</label>
                 </div>
                 <div class="col-sm-5 col-7">

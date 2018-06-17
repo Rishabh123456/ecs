@@ -16,7 +16,7 @@
                       <div class="controls">
                           <div class="input-group">
                               <select class="form-control w-100" name="searchCriteria">
-                                  <option value="UserName"  selected="selected">Test Case</option>
+                                  <option value="UserName"  selected="selected">Phone Number</option>
                                   <!-- <option value="Email">Email</option>
                                   <option value="Contact">Contact</option>
                                   <option value="FirstName">First Name</option>
@@ -57,7 +57,7 @@
         </div>
         <div class="card-body allAstroList">
          
-            <data-table id="persons-grid" headerTitle="Operators" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+            <data-table id="persons-grid" headerTitle="Test Cases" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
             [autoReload]="false" (reload)="reloadItems($event)">
               <!-- <data-table-column [property]="'image'" [header]="'Picture'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
@@ -66,7 +66,7 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="'username'" [header]="'User Name'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="''" [header]="'Phone Number'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'email'" [header]="'Email'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'firstname'" [header]="'First Name'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column [property]="'lastname'" [header]="'Last Name'" [sortable]="true" [resizable]="false"></data-table-column>
