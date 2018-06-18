@@ -106,6 +106,12 @@ export const navigation = [
     icon: 'icon-wrench',
     viewAction: 'SUBSCRIBER_VIEW'
   },
+  {
+    name: 'Crank Back Codes',
+    url: '/crankbackprofile',
+    icon: 'icon-exclamation',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
    {
     name: 'PSAP',
     url: '/psap',

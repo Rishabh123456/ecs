@@ -95,6 +95,11 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
+        path: 'crankbackprofile',
+        loadChildren: './views/crank-back-profile/crank-back-profile.module#CrankBackProfileModule'
+  //      canActivate: [AuthGuard]
+      },
+      {
         path: 'testsubscriber',
         loadChildren: './views/test-subscriber/test-subscriber.module#TestSubscriberModule'
   //      canActivate: [AuthGuard]
