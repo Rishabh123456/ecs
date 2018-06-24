@@ -70,7 +70,7 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
-        path: 'serviceid',
+        path: 'locationInfo',
         loadChildren: './views/serviceid/serviceid.module#ServiceIdModule'
   //      canActivate: [AuthGuard]
       },

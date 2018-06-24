@@ -31,7 +31,7 @@ export class SubscriberService {
     si1.address = 'Noida Sector 62';
     si1.addressCode = '201301';
     si1.buildingName = 'Ansal Plaza';
-    si1.otg = 'OTG1'
+    si1.otg = '91798473894'
     si1.groupStatus = true;
 
 
@@ -52,9 +52,9 @@ export class SubscriberService {
     si2.address = 'Noida Sector 58';
     si2.addressCode = '201303';
     si2.buildingName = 'Shopprix Mall';
-    si2.otg = 'OTG2'
-    si2.groupStatus = true;
-    
+    si2.otg = '91798473895';
+    si2.groupStatus = false;
+    si2.did = '91778464638';
     si2.subscribers = [];
     si2.subscribers.push(new Subscriber('7894328444', false));
     si2.subscribers.push(new Subscriber('7894328445', true));
@@ -72,7 +72,7 @@ export class SubscriberService {
     si3.address = 'Botanical Garden';
     si3.addressCode = '201306';
     si3.buildingName = 'DLF Mall of India';
-    si3.otg = 'OTG3'
+    si3.otg = '91798473899'
     si3.groupStatus = true;
 
 
@@ -94,9 +94,9 @@ export class SubscriberService {
     si4.address = 'Sector 29';
     si4.addressCode = '201306';
     si4.buildingName = 'The Great India Place';
-    si4.otg = 'OTG4'
-    si4.groupStatus = true;
-
+    si4.otg = '91798473899'
+    si4.groupStatus = false;
+    si4.did = '91778464639';
     si4.subscribers = [];
     si4.subscribers.push(new Subscriber('011-496239843', false));
     si4.subscribers.push(new Subscriber('011-496239844', true));

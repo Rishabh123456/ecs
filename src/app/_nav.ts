@@ -119,8 +119,8 @@ export const navigation = [
     viewAction: 'PSAP_VIEW'
   },
   {
-    name: 'Service Id',
-    url: '/serviceid',
+    name: 'Location Info',
+    url: '/locationInfo',
     icon: 'icon-cursor',
     viewAction: 'SUBSCRIBER_VIEW'
   },

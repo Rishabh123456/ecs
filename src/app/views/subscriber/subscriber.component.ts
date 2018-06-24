@@ -212,12 +212,25 @@ onAddSubscriber() {
   this.saveText = "Save";
   this.savingText = "Saving..."
   // this.selectedBannerTypeId = 0;
-  this.headerText = "Add New Phone Number"
+  this.headerText = "Add New DID"
   this._form.form.markAsPristine();
   this._form.form.markAsUntouched();
   this._form.form.updateValueAndValidity();
   this._subscriberModal.show();
 } 
+
+onUpdateSubscriber(subscriber) {
+  this.readOnly = false;
+  this.subscriber = subscriber;
+  this.saveText = "Update";
+  this.savingText = "Updating..."
+  // this.selectedBannerTypeId = 0;
+  this.headerText = "Update DID Info"
+  this._form.form.markAsPristine();
+  this._form.form.markAsUntouched();
+  this._form.form.updateValueAndValidity();
+  this._subscriberModal.show();
+}
 
 subscriberChangeTypeaheadLoading(e: boolean): void {
     this.subscriberTypeaheadLoading = e;

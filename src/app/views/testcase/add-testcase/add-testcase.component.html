@@ -70,6 +70,7 @@
                     <div class="controls">
                       <div class="input-group">
                         <input class="form-control" type="text" class="form-control" name="testcase.selectedPSAP.name" [(ngModel)]="testcase.selectedPSAP.name" [attr.disabled]="''">
+                        <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 10px;margin-top: 10px;">
                         <!-- <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter a PSAP</span> -->
                       </div>
                     </div>
@@ -188,6 +189,7 @@
                     <div class="controls">
                       <div class="input-group">
                         <input class="form-control" type="text" class="form-control" name="testcase.alternatePSAP.name" [(ngModel)]="testcase.alternatePSAP.name" [attr.disabled]="''">
+                        <input name="options" ng-control="options" type="radio" [value]="2" style="margin-left: 10px;margin-top: 10px;">
                         <!-- <span class="help-block" *ngIf="!_password.valid && _password.touched">Please enter a PSAP</span> -->
                       </div>
                     </div>
@@ -292,8 +294,17 @@
                 </div>
               </div>
           </div>
-
-            <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
+          <div class="form-group row">
+            <div class="col-sm-6" style="margin-left: 100px;">
+                <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button>
+            </div>
+              
+            <div class="col-sm-6" style="margin-left: -311px;">
+                <button type="button" value="Send Location" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Send Location</button>
+            </div>
+          </div>
+            
+            
         </form>
       </div>
     </div>

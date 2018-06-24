@@ -12,6 +12,7 @@ export class ServiceId {
     address: string;
     groupStatus: boolean;
     otg: string;
+    did: string;
     subscribers: Subscriber[];
 }
     

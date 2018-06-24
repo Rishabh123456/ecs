@@ -14,7 +14,7 @@ const routes: Routes = [
       {
           path: '',
           data: {
-            title: 'Service Id'
+            title: 'Location Info'
           },
           children: [
             {

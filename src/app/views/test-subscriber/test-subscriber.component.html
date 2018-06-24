@@ -19,8 +19,8 @@
                       <div class="controls">
                           <div class="input-group">
                               <select class="form-control w-100" name="searchCriteria">
-                                  <option value="UserName"  selected="selected">Phone Number</option>
-                                  <option value="UserName">Service Id</option>
+                                  <option value="UserName"  selected="selected">DID</option>
+                                  <!-- <option value="UserName">Service Id</option> -->
                                   <!-- <option value="Email">Email</option>
                                   <option value="Contact">Contact</option>
                                   <option value="FirstName">First Name</option>
@@ -71,14 +71,14 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="'number'" [header]="'Phone Number'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false">
+              <data-table-column [property]="'number'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
+              <!-- <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false"> -->
                   
-              </data-table-column>
+              <!-- </data-table-column> -->
               <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
-                  <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateSubscriber(item)"><i class="fa fa-edit "></i></button>
-                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeleteSubscriber(item)"><i class="fa fa-trash-o "></i></button>
+                  <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateTestSubscriber(item)"><i class="fa fa-edit "></i></button>
+                    <button class="btn btn-outline-primary btn-sm" type="button" (click)="onDeleteTestSubscriber(item)"><i class="fa fa-trash-o "></i></button>
                 </ng-template>
               </data-table-column>
               
@@ -110,16 +110,16 @@
 
 
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-md-5 col-form-label" for="bannertypeId">Service Id</label>
               <div class="col-md-6">
                 <input class="form-control" type="Email" class="form-control" name="subscriber.number" required >
                 <!-- <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span> -->
-              </div>
-            </div>
+              <!-- </div> -->
+            <!-- </div> --> 
 
             <div class="form-group row">
-              <label class="col-md-5 col-form-label" for="bannertypeId">Phone Number</label>
+              <label class="col-md-5 col-form-label" for="bannertypeId">DID</label>
               <div class="col-md-6">
                 <input class="form-control" type="Email" class="form-control" name="subscriber.number" [(ngModel)]="subscriber.number" required #_number="ngModel">
                 <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span>

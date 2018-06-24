@@ -19,8 +19,8 @@
                     <div class="controls">
                         <div class="input-group">
                             <select class="form-control w-100" name="searchCriteria">
-                                <option value="UserName"  selected="selected">Phone Number</option>
-                                <option value="UserName">Service Id</option>
+                                <option value="UserName"  selected="selected">DID</option>
+                                <option value="UserName">Address Code</option>
                                 <!-- <option value="Email">Email</option>
                                 <option value="Contact">Contact</option>
                                 <option value="FirstName">First Name</option>
@@ -50,10 +50,10 @@
           
           
           <div class="col-sm-6 col-md-3 noMarginpadding">
-              <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onAddSubscriber()">Add New Phone Number</span>
+              <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onAddSubscriber()">Add New DID</span>
           </div>
           <div class="col-sm-6 col-md-3 noMarginpadding">
-              <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onBulkUploadDIDs()">Bulk Upload Phone Numbers</span>
+              <span class="btn btn-primary pull-right linkHover actionButtons" data-toggle="modal" (click)="onBulkUploadDIDs()">Bulk Upload DIDs</span>
             </div>
 
           </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="card-body allAstroList">
          
-            <data-table id="persons-grid" headerTitle="Phone Numbers" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
+            <data-table id="persons-grid" headerTitle="DIDs" [items]="items" [itemCount]="itemCount" [indexColumn]="false"
             [autoReload]="false" (reload)="reloadItems($event)">
               <!-- <data-table-column [property]="'image'" [header]="'Picture'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
@@ -70,8 +70,8 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="'number'" [header]="'Phone Number'" [sortable]="true" [resizable]="false"></data-table-column>
-              <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false">
+              <data-table-column [property]="'number'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'serviceId'" [header]="'Address Code'" [sortable]="true" [resizable]="false">
                   <!-- <ng-template #dataTableCell let-item="item">
                       <span class="busy" *ngIf="!item.test">false</span>
                       <span class="online" *ngIf="item.test">true</span>
@@ -112,7 +112,7 @@
 
 
             <div class="form-group row">
-              <label class="col-md-5 col-form-label" for="bannertypeId">Service Id:</label>
+              <label class="col-md-5 col-form-label" for="bannertypeId">Address Code:</label>
               <div class="col-md-6">
                 <input class="form-control" type="text" class="form-control"  required >
                 <!-- <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span> -->
@@ -120,7 +120,7 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-md-5 col-form-label" for="bannertypeId">Phone Number:</label>
+              <label class="col-md-5 col-form-label" for="bannertypeId">DID:</label>
               <div class="col-md-6">
                 <input class="form-control" type="Email" class="form-control" name="subscriber.number" [(ngModel)]="subscriber.number" required #_number="ngModel">
                 <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span>

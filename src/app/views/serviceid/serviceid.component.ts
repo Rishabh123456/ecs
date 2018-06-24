@@ -183,7 +183,7 @@ export class ServiceIdComponent implements OnInit {
       skipLocationChange: true,
       
     };
-    this.router.navigate(['/serviceid/add']);
+    this.router.navigate(['/locationInfo/add']);
   }
 
   onUpdateServiceId(item: ServiceId) {
@@ -191,7 +191,7 @@ export class ServiceIdComponent implements OnInit {
       skipLocationChange: true,
       
     };
-    this.router.navigate(['/serviceid', item.id]);
+    this.router.navigate(['/locationInfo', item.id]);
   }
 
   onBulkUploadServiceIds() {

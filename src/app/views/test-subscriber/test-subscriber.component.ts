@@ -219,6 +219,23 @@ onAddSubscriber() {
   this._subscriberModal.show();
 } 
 
+onUpdateTestSubscriber (subscriber) {
+  this.readOnly = false;
+  this.subscriber = subscriber;
+  this.saveText = "Update";
+  this.savingText = "Updating..."
+  // this.selectedBannerTypeId = 0;
+  this.headerText = "Update Test Number"
+  this._form.form.markAsPristine();
+  this._form.form.markAsUntouched();
+  this._form.form.updateValueAndValidity();
+  this._subscriberModal.show();
+}
+
+onDeleteTestSubscriber() {
+
+}
+
 subscriberChangeTypeaheadLoading(e: boolean): void {
     this.subscriberTypeaheadLoading = e;
 }

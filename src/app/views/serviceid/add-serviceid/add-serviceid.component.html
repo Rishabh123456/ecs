@@ -154,7 +154,7 @@
                         <div class="col-sm-5 col-7">
                           <div class="controls">
                             <div class="input-group">
-                              <input class="form-control" type="text" class="form-control" name="serviceId.address" [(ngModel)]="serviceId.address" required #_address="ngModel">
+                              <input class="form-control" type="text" class="form-control" name="serviceId.otg" [(ngModel)]="serviceId.otg" required #_otg="ngModel">
                               <!-- <span class="help-block" *ngIf="!_addressCode.valid && _addressCode.touched">Please enter Address Code</span> -->
                             </div>
                           </div>
@@ -168,10 +168,10 @@
                         </div>
                         <div class="col-sm-5 col-7">
                             <div class="controls">
-                                <select class="form-control" id="serviceId.groupStatus">
-                                <option value="null" selected="selected">--Group Status--</option>
-                                <option value="true">True</option>
-                                <option value="false">False</option>
+                              <select class="form-control" name="serviceId.groupStatus" [(ngModel)]="serviceId.groupStatus">
+                                <option [ngValue]=null selected="selected">--Group Status--</option>
+                                <option [ngValue]=true>Yes</option>
+                                <option [ngValue]=false>No</option>
                               </select>
                               <!-- <span class="help-block" *ngIf="!type.valid && type.touched">Please enter a type</span> -->
                               </div>
@@ -179,6 +179,26 @@
                   </div>
                 </div>
               </div>
+
+              <div class="form-group row" *ngIf="serviceId.groupStatus === false">
+                
+                 <div class="col-sm-6">
+                   <div class="row">
+                       <div class="col-sm-5 col-5">
+                           <label class="col-form-label" for="appendedInputButton">DID:</label>
+                         </div>
+                         <div class="col-sm-5 col-7">
+                           <div class="controls">
+                             <div class="input-group">
+                               <input class="form-control" type="text" class="form-control" name="serviceId.did" [(ngModel)]="serviceId.did" required #_did="ngModel">
+                               <!-- <span class="help-block" *ngIf="!_addressCode.valid && _addressCode.touched">Please enter Address Code</span> -->
+                             </div>
+                           </div>
+                         </div>
+                   </div>            
+                 </div>
+                 
+               </div>
           
               <!-- <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid">Submit</button> -->
           <button type="submit" value="Submit" class="btn btn-primary submitBtn"  [disabled]="!notificationForm.valid" style="margin-right: 448px">Submit</button>
