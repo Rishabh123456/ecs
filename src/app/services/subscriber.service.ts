@@ -135,7 +135,7 @@ export class SubscriberService {
      for (var i = 0; i < this.serviceIdList.length; i++) {
         // allSubscribers = allSubscribers.concat(this.serviceIdList[i].subscribers);
         for (var j = 0; j < this.serviceIdList[i].subscribers.length; j++) {
-            allSubscribers.push(new TestSubscriber(this.serviceIdList[i].serviceId, this.serviceIdList[i].subscribers[j].number));
+            allSubscribers.push(new TestSubscriber(this.serviceIdList[i].otg, this.serviceIdList[i].subscribers[j].number));
     
             
          }

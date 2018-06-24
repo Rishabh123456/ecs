@@ -124,12 +124,12 @@ export const navigation = [
     icon: 'icon-cursor',
     viewAction: 'SUBSCRIBER_VIEW'
   },
-  // {
-  //   name: 'Subscriber',
-  //   url: '/subscriber',
-  //   icon: 'icon-phone',
-  //   viewAction: 'SUBSCRIBER_VIEW'
-  // },
+  {
+    name: 'DID-OTG Map',
+    url: '/did',
+    icon: 'icon-phone',
+    viewAction: 'SUBSCRIBER_VIEW'
+  },
   {
     name: 'Serving PSAP',
     url: '/addresscodepsap',

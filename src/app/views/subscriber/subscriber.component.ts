@@ -267,7 +267,7 @@ subscriberTextChanged(value: string) {
   
 
   reloadItems(params) {
-    this.getServiceIdsList(params, null);
+    this.getAllSubscriberNumbers();
   }
 
   onAddServiceId() {

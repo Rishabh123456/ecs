@@ -1,10 +1,10 @@
 export class TestSubscriber {
     number: string;
-    serviceId: string;
+    otg: string;
 
-    constructor(serviceId: string, number: string) {
+    constructor(otg: string, number: string) {
         this.number = number;
-        this.serviceId = serviceId;
+        this.otg = otg;
     }
 
     

@@ -14,7 +14,7 @@ const routes: Routes = [
       {
           path: '',
           data: {
-            title: 'Subscribers'
+            title: 'DID-OTG Map'
           },
           children: [
             {

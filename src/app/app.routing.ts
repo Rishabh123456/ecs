@@ -75,7 +75,7 @@ export const routes: Routes = [
   //      canActivate: [AuthGuard]
       },
       {
-        path: 'subscriber',
+        path: 'did',
         loadChildren: './views/subscriber/subscriber.module#SubscriberModule'
   //      canActivate: [AuthGuard]
       },
