@@ -1,11 +1,13 @@
 export class Subscriber {
-    number: string;
+    serviceId: string;
+    did: string;
     otg: string;
-    test: boolean;
+    groupStatus: boolean;
+   
 
-    constructor(number: string, test: boolean) {
-        this.number = number;
-        this.test = test;
+    constructor(serviceId: string, groupStatus: boolean) {
+        this.serviceId = serviceId;
+        this.groupStatus = groupStatus;
     }
 
     

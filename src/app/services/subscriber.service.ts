@@ -36,11 +36,19 @@ export class SubscriberService {
 
 
     si1.subscribers = [];
-    si1.subscribers.push(new Subscriber('987654321', false));
-    si1.subscribers.push(new Subscriber('987654320', false));
-    si1.subscribers.push(new Subscriber('987654319', false));
-    si1.subscribers.push(new Subscriber('987654322', true));
+
+    let ss1 = new Subscriber(si1.serviceId, false);
+    ss1.did = '917879874893';
+    si1.subscribers.push(ss1);
+
+    let ss2 = new Subscriber(si1.serviceId, false);
+    ss2.did = '917879874894';
+    si1.subscribers.push(ss2);
     
+    
+    let ss3 = new Subscriber(si1.serviceId, false);
+    ss3.did = '917879874895';
+    si1.subscribers.push(ss3);
     this.serviceIdList.push(si1);
 
 
@@ -56,10 +64,9 @@ export class SubscriberService {
     si2.groupStatus = false;
     si2.did = '91778464638';
     si2.subscribers = [];
-    si2.subscribers.push(new Subscriber('7894328444', false));
-    si2.subscribers.push(new Subscriber('7894328445', true));
-    si2.subscribers.push(new Subscriber('7894328447', false));
-    si2.subscribers.push(new Subscriber('7894328446', true));
+    let ssi21 = new Subscriber(si2.serviceId, true);
+    ssi21.otg = '918997894894';
+    si2.subscribers.push(ssi21);
 
     this.serviceIdList.push(si2);
 
@@ -77,10 +84,9 @@ export class SubscriberService {
 
 
     si3.subscribers = [];
-    si3.subscribers.push(new Subscriber('0120-3287912', false));
-    si3.subscribers.push(new Subscriber('0120-3287913', true));
-    si3.subscribers.push(new Subscriber('0120-3287914', false));
-    
+    let ssi31 = new Subscriber(si3.serviceId, true);
+    ssi31.otg = '91899789432432';
+    si3.subscribers.push(ssi31);
 
     this.serviceIdList.push(si3);
 
@@ -98,9 +104,6 @@ export class SubscriberService {
     si4.groupStatus = false;
     si4.did = '91778464639';
     si4.subscribers = [];
-    si4.subscribers.push(new Subscriber('011-496239843', false));
-    si4.subscribers.push(new Subscriber('011-496239844', true));
-    si4.subscribers.push(new Subscriber('011-496239845', false));
     
 
     this.serviceIdList.push(si4);
@@ -130,12 +133,12 @@ export class SubscriberService {
   }
 
   getAllSubscriberNumbers() {
-      let allSubscribers: TestSubscriber[] = [];
+      let allSubscribers: Subscriber[] = [];
      
      for (var i = 0; i < this.serviceIdList.length; i++) {
         // allSubscribers = allSubscribers.concat(this.serviceIdList[i].subscribers);
         for (var j = 0; j < this.serviceIdList[i].subscribers.length; j++) {
-            allSubscribers.push(new TestSubscriber(this.serviceIdList[i].otg, this.serviceIdList[i].subscribers[j].number));
+            allSubscribers.push(this.serviceIdList[i].subscribers[j]);
     
             
          }

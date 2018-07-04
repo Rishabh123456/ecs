@@ -71,7 +71,7 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-              <data-table-column [property]="'number'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'did'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
               <!-- <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false"> -->
                   
               <!-- </data-table-column> -->
@@ -121,7 +121,7 @@
             <div class="form-group row">
               <label class="col-md-5 col-form-label" for="bannertypeId">DID</label>
               <div class="col-md-6">
-                <input class="form-control" type="Email" class="form-control" name="subscriber.number" [(ngModel)]="subscriber.number" required #_number="ngModel">
+                <input class="form-control" type="Email" class="form-control" name="subscriber.did" [(ngModel)]="subscriber.did" required #_number="ngModel">
                 <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span>
               </div>
             </div>

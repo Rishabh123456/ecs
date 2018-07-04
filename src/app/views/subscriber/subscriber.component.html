@@ -19,8 +19,10 @@
                     <div class="controls">
                         <div class="input-group">
                             <select class="form-control w-100" name="searchCriteria">
-                                <option value="UserName"  selected="selected">DID</option>
-                                <option value="UserName">OTG</option>
+                              <option value="UserName" selected="selected">Service Id</option>  
+                              <option value="UserName"  >Group Status</option>
+                              <option value="UserName"  >DID</option>
+                              <option value="UserName"  >OTG</option>
                                 <!-- <option value="Email">Email</option>
                                 <option value="Contact">Contact</option>
                                 <option value="FirstName">First Name</option>
@@ -70,14 +72,21 @@
                   </span>
                 </ng-template>
               </data-table-column> -->
-             
+              <data-table-column [property]="'serviceId'" [header]="'Service Id'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'groupStatus'" [header]="'Group Status'" [sortable]="true" [resizable]="false">
+                <ng-template #dataTableCell let-item="item">
+                    <span class="busy" *ngIf="!item">No</span>
+                    <span class="online" *ngIf="item">Yes</span>
+                  </ng-template>
+            </data-table-column>
+              
               <data-table-column [property]="'otg'" [header]="'OTG'" [sortable]="true" [resizable]="false">
                   <!-- <ng-template #dataTableCell let-item="item">
                       <span class="busy" *ngIf="!item.test">false</span>
                       <span class="online" *ngIf="item.test">true</span>
                     </ng-template> -->
               </data-table-column>
-              <data-table-column [property]="'number'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
+              <data-table-column [property]="'did'" [header]="'DID'" [sortable]="true" [resizable]="false"></data-table-column>
               <data-table-column  width="10%" [property]="" [header]="'Action'" [sortable]="false" [resizable]="false">
                 <ng-template #dataTableCell let-item="item">
                   <button class="btn btn-outline-primary btn-sm" type="button" (click)="onUpdateSubscriber(item)"><i class="fa fa-edit "></i></button>
@@ -111,8 +120,28 @@
           <div class="modal-body" style="">
 
 
-
             <div class="form-group row">
+              <label class="col-md-5 col-form-label">Service Id:</label>
+              <div class="col-md-6">
+                <!-- <input class="form-control" type="text" class="form-control" name="subscriber.otg" [(ngModel)]="subscriber.otg" required > -->
+                <input class="form-control" type="text" class="form-control" name="subscriber.serviceId" [(ngModel)]="subscriber.serviceId" required >
+                <!-- <span class="help-block" *ngIf="!_number.valid && _number.touched ">Please Enter a Number</span> -->
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-5 col-form-label">Group Status:</label>
+              <div class="controls col-md-6">
+                <select class="form-control" name="subscriber.groupStatus" [(ngModel)]="subscriber.groupStatus">
+                  <option [ngValue]=null selected="selected">--Group Status--</option>
+                  <option [ngValue]=true>Yes</option>
+                  <option [ngValue]=false>No</option>
+                </select>
+                 <!-- <span class="help-block" *ngIf="!type.valid && type.touched">Please enter a type</span>  -->
+                </div>
+            </div>
+
+            
+            <div class="form-group row" *ngIf="subscriber.groupStatus">
               <label class="col-md-5 col-form-label" for="bannertypeId">OTG:</label>
               <div class="col-md-6">
                 <input class="form-control" type="text" class="form-control" name="subscriber.otg" [(ngModel)]="subscriber.otg" required >
@@ -120,7 +149,7 @@
               </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group row" *ngIf="!subscriber.groupStatus">
               <label class="col-md-5 col-form-label" for="bannertypeId">DID:</label>
               <div class="col-md-6">
                 <input class="form-control" type="Email" class="form-control" name="subscriber.number" [(ngModel)]="subscriber.number" required #_number="ngModel">
@@ -128,12 +157,12 @@
               </div>
             </div>
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label class="col-sm-5 col-form-label" for="upActive">Test Data:</label>
               <div class="col-sm-6">
                 <input id="upActive" name="subscriber.test" [checked]="subscriber.test" type="checkbox" [(ngModel)]="subscriber.test" style="margin-top: 12px;">
               </div>
-            </div>
+            </div> -->
 
 
 

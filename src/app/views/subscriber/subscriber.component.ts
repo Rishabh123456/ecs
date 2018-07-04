@@ -217,6 +217,7 @@ onAddSubscriber() {
   this._form.form.markAsUntouched();
   this._form.form.updateValueAndValidity();
   this._subscriberModal.show();
+ // this.router.navigate(['/did/add']);
 } 
 
 onUpdateSubscriber(subscriber) {
